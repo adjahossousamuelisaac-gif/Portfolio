@@ -1,0 +1,137 @@
+/* ========================================
+   HEADER & NAVIGATION - SYNCED WITH PORTFOLIO
+   ======================================== */
+header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  padding: 0.8rem 2rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 85, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 85, 255, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Liquid Glass Reflection Effect */
+header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  animation: liquidMove 10s infinite linear;
+}
+
+@keyframes liquidMove {
+  0% { transform: translate(-10%, -10%) rotate(0deg); }
+  50% { transform: translate(10%, 10%) rotate(180deg); }
+  100% { transform: translate(-10%, -10%) rotate(360deg); }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.logo h3 {
+  margin: 0;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  z-index: 2;
+}
+
+header nav a {
+  color: var(--text-main);
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: var(--primary-color);
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  position: relative;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px var(--primary-glow);
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-main);
+  transition: var(--transition-smooth);
+  border-radius: 2px;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+  nav ul {
+    gap: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media print {
+  header {
+      display: none !important;
+  }
+}

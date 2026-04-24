@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Premium Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/carrousel.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/projets.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <script src="js/carrousel.js" defer></script>
+    <script src="js/modale.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+      defer
+    ></script>
+    <script src="js/contact.js" defer></script>
+    <script src="js/theme.js" defer></script>
+  </head>
+  <body>
+    <!-- Animations d'arrière-plan -->
+    <div class="background-animations">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <header>
+      <div class="logo">
+        <h3>Mon Portfolio</h3>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#Accueil">Accueil</a></li>
+          <li><a href="#Projets">Projets</a></li>
+          <li><a href="#Competences">Compétences</a></li>
+          <li><a href="CV/MON_CV.html">Mon CV</a></li>
+          <li><a href="#Contact">Contact</a></li>
+          <li>
+            <button id="themeToggle" class="btn btn-secondary" style="padding: 0.4rem 1rem; border-radius: 50%; min-width: 40px;">
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div id="main">
+      <div id="Accueil">
+        <div class="dynamic-bg"></div>
+        <div class="carrousel">
+          <!-- Slide 1: Présentation -->
+          <div class="carrousel-item active">
+            <div class="carrousel-content glass presentation-slide">
+              <img src="img/photo_.png" alt="photo_profil" class="photo-profil">
+              <h1>Adjahossou Achi Samuel</h1>
+              <p class="title-tag">
+                <span class="highlight">Développeur Full Stack</span>
+              </p>
+              <p class="description">
+                Je suis un développeur web passionné avec une solide expérience
+                dans la création de sites web modernes et fonctionnels. Mon
+                objectif est de concevoir des expériences utilisateur
+                exceptionnelles en utilisant les dernières technologies du web.
+                Avec une expertise en HTML, CSS, JavaScript et divers
+                frameworks, je m'efforce de transformer les idées en réalité
+                numérique. Mon portfolio présente une sélection de projets qui
+                démontrent ma créativité, ma compétence technique et mon
+                engagement envers l'excellence dans le développement web.
+              </p>
+              <div class="cta-buttons">
+                <a href="#Projets" class="btn btn-primary">Voir mes projets</a>
+                <a href="#Contact" class="btn btn-secondary">Me contacter</a>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2: Projets Récents -->
+          <div class="carrousel-item">
+            <div class="carrousel-content glass">
+              <h2 class="center">Mes Projets Récents</h2>
+              <div class="projects-grid">
+                <div class="project-card">
+                  <div class="project-icon"></div>
+                  <h3>projet1</h3>
+                  <p>Description projet</p>
+                  <span class="tech-tag">language utiliser</span>
+                  <span class="tech-tag">language utiliser</span>
+                </div>
+                <div class="project-card">
+                  <div class="project-icon"></div>
+                  <h3>projet2</h3>
+                  <p>Description projet</p>
+                  <span class="tech-tag">language utiliser</span>
+                  <span class="tech-tag">language utiliser</span>
+                </div>
+              </div>
+              <div class="center-btn">
+                <a href="#Projets" class="btn btn-primary"
+                  >Explorer mes projets <i class="fas fa-arrow-right"></i></a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3: Contact & Collaboration -->
+          <div class="carrousel-item">
+            <div class="carrousel-content contact-slide glass">
+              <h2 class="center">Travaillons ensemble</h2>
+              <p class="contact-intro">
+                Vous avez un projet en tête ? Je suis disponible pour discuter
+                de vos idées et les concrétiser.
+              </p>
+
+              <div class="contact-details">
+                <div class="contact-method">
+                  <span class="contact-emoji"></span>
+                  <div>
+                    <h4>Email</h4>
+                    <p>adjahossousamuelisaac@email.com</p>
+                  </div>
+                </div>
+                <div class="contact-method">
+                  <span class="contact-emoji"></span>
+                  <div>
+                    <h4>Téléphone</h4>
+                    <p>+225 05 04 35 13 06 <br> +225 01 50 71 60 29</p>
+                  </div>
+                </div>
+                <div class="contact-method">
+                  <span class="contact-emoji"></span>
+                  <div>
+                    <h4>Localisation</h4>
+                    <p>Abidjan, Côte d'Ivoire</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="social-section">
+              <h3>Retrouvez-moi sur</h3>
+              <div class="social-links">
+                <a href="https://github.com/adjahossousamuelisaac-gif" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/adjahossou-achi-samuel-isaac-romaric-08679a3b1" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="https://www.instagram.com/samuel2696354" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                <!-- <a href="#" class="social-link"><i class="fas fa-code-branch"></i> Stack Overflow</a> -->
+              </div>
+            </div>
+
+            <a href="#Contact" class="btn btn-primary contact-btn"
+              >Envoyer un message</a
+            >
+          </div>
+        </div>
+        <!-- Contrôles du carrousel -->
+        <button class="carrousel-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="carrousel-btn next" onclick="changeSlide(1)">❯</button>
+        <!-- Indicateurs (dots) -->
+        <div class="carrousel-dots">
+          <span class="dot active" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+      <div id="Competences">
+        <h2>Mes Compétences</h2>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3><span><i class="fas fa-code"></i></span> Frontend</h3>
+            <ul>
+              <li>HTML5 / CSS3 / SASS</li>
+              <li>JavaScript (ES6+)</li>
+              <li>React </li>
+              <li>Responsive Design</li>
+              <li>Bootstrap</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3><span><i class="fas fa-server"></i></span> Backend</h3>
+            <ul>
+              <li>Spring boot</li>
+              <li>Node.js</li>
+              <li>Python</li>
+              <li>PHP</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3><span><i class="fas fa-database"></i></span> Base de Données</h3>
+            <ul>
+              <li>MySQL / PostgreSQL</li>
+              <li>Firebase</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3><span><i class="fas fa-tools"></i></span> Outils & DevOps</h3>
+            <ul>
+              <li>Git / GitHub</li>
+              <li>VS Code</li>
+              <li>InteliJD / PyCharm</li>
+              <li>Figma / Adobe XD</li>
+              <li>Xamp</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="Projets">
+        <h2>Mes Projets</h2>
+        <div class="projects-container">
+          <div class="project-card" data-project="1">
+            <h3>Projet 1</h3>
+            <p>Description du projet 1. Ce projet consiste à...</p>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <div class="project-card" data-project="2">
+            <h3>Projet 2</h3>
+            <p>Description du projet 2. Ce projet consiste à...</p>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+          <div class="project-card" data-project="3">
+            <h3>Projet 3</h3>
+            <p>Description du projet 3. Ce projet consiste à...</p>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+          </div>
+        </div>
+      </div>
+      <!-- Modal pour les projets -->
+      <div id="projectModal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <div id="modalContent">
+            <!-- Le contenu dynamique sera injecté ici -->
+          </div>
+        </div>
+      </div>
+      <div id="Contact">
+        <h2>Contactez-moi</h2>
+
+        <div class="contact-container">
+          <!-- Informations de contact -->
+          <div class="contact-info">
+            <h3>Parlons de votre projet</h3>
+            <p class="contact-description">
+              Vous avez un projet en tête ? N'hésitez pas à me contacter. Je
+              suis toujours disponible pour discuter de nouvelles idées et
+              collaborations.
+            </p>
+
+            <div class="info-items">
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Localisation</h4>
+                  <p>Abidjan, Côte d'Ivoire</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Email</h4>
+                  <p>adjahossousamuelisaac@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Téléphone</h4>
+                  <p>+225 05 04 35 13 06 <br> +225 01 50 71 60 29</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Disponibilité</h4>
+                  <p>Lun - Ven, 9h - 18h</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Réseaux sociaux -->
+            <div class="social-section" style="margin-top: 20px;">
+              <h4>Suivez-moi</h4>
+              <div class="social-links" style="justify-content: flex-start; margin: 15px 0 0 0;">
+                <a href="https://github.com/adjahossousamuelisaac-gif" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/adjahossou-achi-samuel-isaac-romaric-08679a3b1" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="https://www.instagram.com/samuel2696354" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                <!-- <a href="#" class="social-link"><i class="fas fa-code-branch"></i> Stack Overflow</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulaire de contact -->
+          <div class="contact-form">
+            <h3>Envoyez-moi un message</h3>
+            <form id="contactForm" action="#" method="POST">
+              <div class="form-group">
+                <label for="name">Nom complet</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Votre nom"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="votre@email.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Sujet</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Sujet de votre message"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Votre message..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                <span>Envoyer le message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+
+            <!-- Message de confirmation (caché par défaut) -->
+            <div
+              id="successMessage"
+              class="success-message"
+              style="display: none"
+            >
+              <i class="fas fa-check-circle"></i>
+              <p>
+                Message envoyé avec succès ! Je vous répondrai dans les plus
+                brefs délais.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
