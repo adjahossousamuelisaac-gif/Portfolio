@@ -399,6 +399,82 @@ body {
 }
 
 /* ========================================
+   ANIMATIONS DE RÉVÉLATION
+   ======================================== */
+.reveal {
+  position: relative;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translate(0, 0) !important;
+  pointer-events: auto;
+}
+
+.reveal-up { transform: translateY(50px); }
+.reveal-left { transform: translateX(-50px); }
+.reveal-right { transform: translateX(50px); }
+
+/* Animation de frappe */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--primary-color);
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--primary-color); }
+}
+
+/* Animations Globales Légères */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#main {
+  animation: fadeIn 1s ease-out;
+}
+
+.experience {
+  transition: var(--transition-smooth);
+}
+
+.experience:hover {
+  transform: translateX(10px);
+  border-left: 4px solid var(--primary-color);
+  padding-left: 15px;
+}
+
+header h3 {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: hue-rotate 10s infinite linear;
+}
+
+@keyframes hue-rotate {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+/* Media Query Adjustments for Animations */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none !important;
+    transition: none;
+  }
+}
+
+/* ========================================
    RESPONSIVE DESIGN & IMPRESSION
    ======================================== */
 @media screen and (max-width: 968px) {
@@ -417,12 +493,20 @@ body {
         overflow-y: visible;
     }
 
-    #d2 {
-        padding: 30px 20px;
-    }
-    
     body {
-        padding: 15px;
+        padding: 80px 15px 15px 15px;
+    }
+
+    #main {
+        margin-top: 20px;
+    }
+
+    .nom {
+        font-size: 1.8rem;
+    }
+
+    #nom {
+        font-size: 2.2rem;
     }
 }
 

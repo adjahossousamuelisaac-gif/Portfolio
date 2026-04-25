@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <script src="../js/theme.js" defer></script>
+    <script src="../js/animations.js" defer></script>
 </head>
 <body>
     <!-- Animations d'arrière-plan -->
@@ -26,7 +27,10 @@
         <div class="logo">
             <h3>Mon Portfolio</h3>
         </div>
-        <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav id="nav-menu">
             <ul>
                 <li><a href="../index.html#Accueil">Accueil</a></li>
                 <li><a href="../index.html#Projets">Projets</a></li>
@@ -42,8 +46,8 @@
     </header>
     <div id="main"> 
         <div id="d1">
-            <img src="images/photo.png" alt="Photo de profil" id="photo">
-            <section id="contact">
+            <img src="images/photo.png" alt="Photo de profil" id="photo" class="reveal reveal-up">
+            <section id="contact" class="reveal reveal-left">
                 <h2>CONTACT</h2>
                 <hr>
                 <p>
@@ -64,7 +68,7 @@
                 </p>
             </section>
             <br>
-            <section id="competences">
+            <section id="competences" class="reveal reveal-left" style="transition-delay: 0.1s;">
                 <h2>COMPÉTENCES</h2>
                 <hr>
                 <ul>
@@ -76,7 +80,7 @@
                 </ul>
             </section>
             <br>
-            <section id="langues">
+            <section id="langues" class="reveal reveal-left" style="transition-delay: 0.2s;">
                 <h2>LANGUES</h2>
                 <hr>
                 <ul>
@@ -86,7 +90,7 @@
                 </ul>
             </section>
             <br>
-            <section id="loisirs">
+            <section id="loisirs" class="reveal reveal-left" style="transition-delay: 0.3s;">
                 <h2>CENTRES D'INTÉRÊT</h2>
                 <hr>
                 <ul>
@@ -98,13 +102,13 @@
             </section>
         </div>
         <div id="d2">
-            <h1 class="nom">
+            <h1 class="nom reveal reveal-up">
                 <span id="nom">ADJAHOSSOU</span> 
                 <br>
-                ACHI SAMUEL ISAAC ROMARIC
+                <span class="typewriter">ACHI SAMUEL ISAAC ROMARIC</span>
             </h1>
             <br>
-            <section id="profil">
+            <section id="profil" class="reveal reveal-up">
                 <h2>PROFIL</h2>
                 <hr>
                 <p> 
@@ -112,25 +116,48 @@
                 </p>
             </section>
             <br>
-            <section id="formation">
+            <section id="formation" class="reveal reveal-up">
                 <h2>FORMATION</h2>
                 <hr>
-                <p class="date">2025-2026 :</p>
-                <h4>Licence 3 MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises)</h4> 
-                <span>Université Polytechnique de Bingerville</span>
+                <div class="reveal reveal-up" style="transition-delay: 0.1s;">
+                    <p class="date">2025-2026 :</p>
+                    <h4>Licence 3 MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises)</h4> 
+                    <span>Université Polytechnique de Bingerville</span>
+                </div>
                 <br>
-                <p class="date">2022-2023 :</p>
-                <h4>BACCALAURÉAT Série C</h4>
-                <span>Lycée Moderne 1 d'Adzopé</span>
+                <div class="reveal reveal-up" style="transition-delay: 0.2s;">
+                    <p class="date">2022-2023 :</p>
+                    <h4>BACCALAURÉAT Série C</h4>
+                    <span>Lycée Moderne 1 d'Adzopé</span>
+                </div>
                 <br>
-                <p class="date">2019-2020 :</p>
-                <h4>Brevet d'Études du Premier Cycle (BEPC)</h4> 
-                <span>Lycée Moderne 2 d'Adzopé</span>        
+                <div class="reveal reveal-up" style="transition-delay: 0.3s;">
+                    <p class="date">2019-2020 :</p>
+                    <h4>Brevet d'Études du Premier Cycle (BEPC)</h4> 
+                    <span>Lycée Moderne 2 d'Adzopé</span>        
+                </div>
             </section>
-            <section id="experiences-professionnelles">
+            <section id="experiences-professionnelles" class="reveal reveal-up">
                 <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
                 <hr>
-                <div class="experience">
+                <div class="experience reveal reveal-right" style="transition-delay: 0.1s;">
+                    <h3>Développeur Full Stack - Projet SmartRDV</h3>
+                    <p class="lieu"><strong>Projet académique - Bingerville</strong> | Avril 2026 (en cours)</p>
+                    <ul>
+                        <li><strong>Conception et développement</strong> d'une application web de gestion de prise de rendez-vous</li>
+                        <li><strong>Mise en place</strong> d'une architecture Frontend (React + Vite) et Backend (Spring Boot)</li>
+                        <li><strong>Implémentation</strong> d'un système multi-rôles (Administrateur, Entreprise, Client)</li>
+                        <li><strong>Développement des fonctionnalités :</strong>
+                            <ul>
+                                <li>Authentification et gestion des utilisateurs</li>
+                                <li>Réservation de rendez-vous en ligne</li>
+                                <li>Tableaux de bord dynamiques selon le rôle</li>
+                            </ul>
+                        </li>
+                        <li><strong>Conception de la base de données</strong> (MySQL / XAMPP)</li>
+                    </ul>
+                </div>
+                <div class="experience reveal reveal-right" style="transition-delay: 0.2s;">
                     <h3>Gérant de cybercafé</h3>
                     <p class="lieu"><strong>Cybercafé – Adzopé</strong> | Juillet - Août 2024 (2 mois)</p>
                     <ul>

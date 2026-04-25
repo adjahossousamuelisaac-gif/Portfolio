@@ -10,9 +10,9 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  let i;
   let slides = document.getElementsByClassName("carrousel-item");
   let dots = document.getElementsByClassName("dot");
+  let carrousel = document.querySelector(".carrousel");
 
   if (n > slides.length) {
     slideIndex = 1;
@@ -21,23 +21,24 @@ function showSlides(n) {
     slideIndex = slides.length;
   }
 
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  // Calculer le décalage (chaque slide fait 100vw)
+  const offset = -(slideIndex - 1) * 100;
+  carrousel.style.transform = `translateX(${offset}vw)`;
+
+  // Mettre à jour l'état actif des slides pour l'animation d'opacité/scale
+  for (let i = 0; i < slides.length; i++) {
     slides[i].classList.remove("active");
   }
+  slides[slideIndex - 1].classList.add("active");
 
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+  // Mettre à jour les indicateurs (dots)
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
   }
-
-  slides[slideIndex - 1].style.display = "flex";
-  setTimeout(() => {
-    slides[slideIndex - 1].classList.add("active");
-  }, 50);
-  dots[slideIndex - 1].className += " active";
+  dots[slideIndex - 1].classList.add("active");
 }
 
 // Auto-play (optionnel)
 setInterval(() => {
   changeSlide(1);
-}, 20000);
+}, 15000);

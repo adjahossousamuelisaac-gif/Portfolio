@@ -1,31 +1,31 @@
 // Données des projets (vous pouvez les remplacer par vos propres données)
 const projectsData = {
     1: {
-        title: "Projet 1",
-        description: "Description détaillée du projet 1. Ce projet consiste à développer une application web moderne avec des fonctionnalités avancées. L'objectif était de créer une interface utilisateur intuitive et responsive.",
-        longDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        image: "https://via.placeholder.com/800x400?text=Projet+1",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        link: "https://example.com/projet1",
+        title: "MonBusiness",
+        description: "Application de gestion de stock et de ventes pour petits commerçants. ",
+        longDescription: "MonBusiness est né d'un besoin réel sur les marchés africains : aider les petits commerçants à voir leurs bénéfices réels.\n\nL'application calcule automatiquement le prix moyen pondéré malgré les variations de prix d'achat. Elle permet un suivi précis du stock sur smartphone, sans besoin de connexion internet constante.",
+        image: "img/projets/MonBusiness.jpg",
+        technologies: ["React", "Vite", "localStorage", "CSS"],
+        link: "https://samdev-monbusiness.netlify.app/",
         linkText: "Voir le projet"
     },
     2: {
-        title: "Projet 2",
-        description: "Description détaillée du projet 2. Une application full-stack utilisant React et Node.js pour créer une expérience utilisateur fluide et performante.",
-        longDescription: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
-        image: "https://via.placeholder.com/800x400?text=Projet+2",
-        technologies: ["React", "Node.js", "Express", "MongoDB"],
-        link: "https://example.com/projet2",
+        title: "Tontine Connect",
+        description: "Application de gestion de tontine moderne avec suivi des versements et gestion des membres.",
+        longDescription: "Cette plateforme digitalise les tontines traditionnelles pour garantir une transparence totale.\n\nElle automatise le suivi des paiements, la détermination des bénéficiaires et la synchronisation en temps réel entre tous les membres. C'est l'outil idéal pour sécuriser l'épargne collective et éviter les conflits.",
+        image: "img/projets/Tonti-Connect.jpg",
+        technologies: ["React", "Node.js", "Firebase", "CSS"],
+        link: "https://samdev-tontine.netlify.app/", 
         linkText: "Voir le projet"
     },
     3: {
-        title: "Projet 3",
-        description: "Description détaillée du projet 3. Un backend robuste développé avec Python et Django, avec une API RESTful et une interface d'administration.",
-        longDescription: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
-        image: "https://via.placeholder.com/800x400?text=Projet+3",
-        technologies: ["Python", "Django", "PostgreSQL", "Docker"],
-        link: "https://example.com/projet3",
-        linkText: "Voir le projet"
+        title: "SmartRDV",
+        description: "Application web de gestion de prise de rendez-vous avec architecture React/Spring Boot et système multi-rôles.",
+        longDescription: "SmartRDV simplifie la prise de rendez-vous entre entreprises et clients. Grâce à un système multi-rôles (Admin, Entreprise, Client), chaque utilisateur dispose d'un tableau de bord personnalisé.\n\nLe projet inclut une authentification sécurisée et un calendrier de réservation dynamique pour une expérience utilisateur fluide.",
+        image: "img/projets/SmartRDV.jpg",
+        technologies: ["React", "Spring Boot", "MySQL", "XAMPP"],
+        link: "#",
+        linkText: "En cours de développement"
     }
 };
 
@@ -35,23 +35,61 @@ const modalContent = document.getElementById('modalContent');
 const closeBtn = document.querySelector('.close-modal');
 const projectCards = document.querySelectorAll('.project-card');
 
+// Mapper les technologies vers des icônes FontAwesome
+const techIcons = {
+    "React": '<i class="fab fa-react"></i>',
+    "Vite": '<i class="fas fa-bolt"></i>',
+    "Node.js": '<i class="fab fa-node-js"></i>',
+    "Firebase": '<i class="fas fa-fire"></i>',
+    "Firebase Auth": '<i class="fas fa-user-shield"></i>',
+    "Firebase Realtime Database": '<i class="fas fa-database"></i>',
+    "MySQL": '<i class="fas fa-server"></i>',
+    "Spring Boot": '<i class="fas fa-leaf"></i>',
+    "CSS": '<i class="fab fa-css3-alt"></i>',
+    "HTML": '<i class="fab fa-html5"></i>',
+    "JavaScript": '<i class="fab fa-js"></i>',
+    "XAMPP": '<i class="fas fa-microchip"></i>',
+    "localStorage": '<i class="fas fa-hdd"></i>'
+};
+
+function getTechIcon(tech) {
+    return techIcons[tech] || '<i class="fas fa-code"></i>';
+}
+
 // Fonction pour ouvrir le modal avec les données du projet
 function openProjectModal(projectId) {
     const project = projectsData[projectId];
     
     if (project) {
         modalContent.innerHTML = `
-            <h2 class="modal-project-title">${project.title}</h2>
+            <h2 class="modal-project-title">
+                <i class="fas fa-project-diagram" style="margin-right: 15px; color: var(--primary-color);"></i>
+                ${project.title}
+            </h2>
             <img src="${project.image}" alt="${project.title}" class="modal-project-image">
-            <p class="modal-project-description">${project.longDescription || project.description}</p>
-            <div class="modal-tech-tags">
-                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            <div class="modal-section-title">
+                <i class="fas fa-info-circle"></i> À propos du projet
             </div>
-            <a href="${project.link}" target="_blank" class="modal-project-link">${project.linkText}</a>
+            <p class="modal-project-description">${project.longDescription || project.description}</p>
+            
+            <div class="modal-section-title">
+                <i class="fas fa-tools"></i> Technologies utilisées
+            </div>
+            <div class="modal-tech-tags">
+                ${project.technologies.map(tech => `
+                    <span class="tech-tag">
+                        ${getTechIcon(tech)} ${tech}
+                    </span>
+                `).join('')}
+            </div>
+            
+            <a href="${project.link}" ${project.link !== '#' ? 'target="_blank"' : ''} class="modal-project-link">
+                ${project.linkText} <i class="fas fa-external-link-alt" style="margin-left: 8px; font-size: 0.9em;"></i>
+            </a>
         `;
         
         modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Empêche le défilement de la page
+        document.body.style.overflow = 'hidden'; 
     }
 }
 

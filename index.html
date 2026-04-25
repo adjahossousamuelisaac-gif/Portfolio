@@ -26,6 +26,7 @@
     ></script>
     <script src="js/contact.js" defer></script>
     <script src="js/theme.js" defer></script>
+    <script src="js/animations.js" defer></script>
   </head>
   <body>
     <!-- Animations d'arrière-plan -->
@@ -38,7 +39,10 @@
       <div class="logo">
         <h3>Mon Portfolio</h3>
       </div>
-      <nav>
+      <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav id="nav-menu">
         <ul>
           <li><a href="#Accueil">Accueil</a></li>
           <li><a href="#Projets">Projets</a></li>
@@ -60,24 +64,30 @@
           <!-- Slide 1: Présentation -->
           <div class="carrousel-item active">
             <div class="carrousel-content glass presentation-slide">
-              <img src="img/photo_.png" alt="photo_profil" class="photo-profil">
-              <h1>Adjahossou Achi Samuel</h1>
-              <p class="title-tag">
-                <span class="highlight">Développeur Full Stack</span>
+              <div class="presentation-header">
+                <div class="photo-container">
+                  <img src="img/photo_.png" alt="photo_profil" class="photo-profil">
+                  <div class="availability-badge"><i class="fas fa-circle"></i> Disponible pour vos projets</div>
+                </div>
+                <div class="presentation-text">
+                  <h1 class="animate-text-gradient">Adjahossou Achi Samuel</h1>
+                  <p class="title-tag">
+                    <span class="highlight typewriter">Développeur Full Stack</span>
+                  </p>
+                  <div class="traits-container">
+                    <span class="trait reveal reveal-up" style="transition-delay: 0.1s;"><i class="fas fa-rocket"></i> Passionné</span>
+                    <span class="trait reveal reveal-up" style="transition-delay: 0.2s;"><i class="fas fa-brain"></i> Curieux</span>
+                    <span class="trait reveal reveal-up" style="transition-delay: 0.3s;"><i class="fas fa-check-circle"></i> Rigoureux</span>
+                  </div>
+                </div>
+              </div>
+              <p class="description reveal reveal-up">
+                Expert dans la conception d'expériences numériques modernes. 
+                Je combine créativité et rigueur technique pour transformer vos idées en solutions web performantes, 
+                utilisant les technologies les plus pointues du marché.
               </p>
-              <p class="description">
-                Je suis un développeur web passionné avec une solide expérience
-                dans la création de sites web modernes et fonctionnels. Mon
-                objectif est de concevoir des expériences utilisateur
-                exceptionnelles en utilisant les dernières technologies du web.
-                Avec une expertise en HTML, CSS, JavaScript et divers
-                frameworks, je m'efforce de transformer les idées en réalité
-                numérique. Mon portfolio présente une sélection de projets qui
-                démontrent ma créativité, ma compétence technique et mon
-                engagement envers l'excellence dans le développement web.
-              </p>
-              <div class="cta-buttons">
-                <a href="#Projets" class="btn btn-primary">Voir mes projets</a>
+              <div class="cta-buttons reveal reveal-up">
+                <a href="#Projets" class="btn btn-primary">Explorer mes réalisations</a>
                 <a href="#Contact" class="btn btn-secondary">Me contacter</a>
               </div>
             </div>
@@ -85,76 +95,92 @@
           <!-- Slide 2: Projets Récents -->
           <div class="carrousel-item">
             <div class="carrousel-content glass">
-              <h2 class="center">Mes Projets Récents</h2>
+              <h2 class="center animate-text-gradient">Réalisations Récentes</h2>
               <div class="projects-grid">
-                <div class="project-card">
-                  <div class="project-icon"></div>
-                  <h3>projet1</h3>
-                  <p>Description projet</p>
-                  <span class="tech-tag">language utiliser</span>
-                  <span class="tech-tag">language utiliser</span>
+                <div class="project-card-mini reveal reveal-left">
+                  <div class="project-header">
+                    <i class="fas fa-store-alt project-icon-large"></i>
+                    <span class="badge-new">Nouveau</span>
+                  </div>
+                  <h3>MonBusiness</h3>
+                  <p>Gestion intelligente de stock et de bénéfices réels pour commerçants.</p>
+                  <div class="tech-tags-mini">
+                    <span class="tech-tag-mini react">React</span>
+                    <span class="tech-tag-mini vite">Vite</span>
+                  </div>
                 </div>
-                <div class="project-card">
-                  <div class="project-icon"></div>
-                  <h3>projet2</h3>
-                  <p>Description projet</p>
-                  <span class="tech-tag">language utiliser</span>
-                  <span class="tech-tag">language utiliser</span>
+                <div class="project-card-mini reveal reveal-right">
+                  <div class="project-header">
+                    <i class="fas fa-users-cog project-icon-large"></i>
+                    <span class="badge-hot">Populaire</span>
+                  </div>
+                  <h3>Tontine Connect</h3>
+                  <p>Digitalisation sécurisée des épargnes collectives en temps réel.</p>
+                  <div class="tech-tags-mini">
+                    <span class="tech-tag-mini firebase">Firebase</span>
+                    <span class="tech-tag-mini node">Node.js</span>
+                  </div>
                 </div>
               </div>
-              <div class="center-btn">
-                <a href="#Projets" class="btn btn-primary"
-                  >Explorer mes projets <i class="fas fa-arrow-right"></i></a
-                >
+              <div class="center-btn reveal reveal-up">
+                <a href="#Projets" class="btn btn-primary">
+                  Voir tous les projets <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
           <!-- Slide 3: Contact & Collaboration -->
           <div class="carrousel-item">
             <div class="carrousel-content contact-slide glass">
-              <h2 class="center">Travaillons ensemble</h2>
-              <p class="contact-intro">
-                Vous avez un projet en tête ? Je suis disponible pour discuter
-                de vos idées et les concrétiser.
+              <h2 class="center animate-text-gradient">Prêt à donner vie à vos projets ?</h2>
+              <p class="contact-intro reveal reveal-up">
+                Qu'il s'agisse d'une application web complexe ou d'une solution sur mesure, 
+                je transforme vos idées en réalité numérique performante et élégante.
               </p>
 
               <div class="contact-details">
-                <div class="contact-method">
-                  <span class="contact-emoji"></span>
+                <div class="contact-method reveal reveal-left" style="transition-delay: 0.1s;">
+                  <div class="contact-icon-wrapper">
+                    <i class="fas fa-envelope-open-text"></i>
+                  </div>
                   <div>
                     <h4>Email</h4>
-                    <p>adjahossousamuelisaac@email.com</p>
+                    <p>adjahossousamuelisaac@gmail.com</p>
                   </div>
                 </div>
-                <div class="contact-method">
-                  <span class="contact-emoji"></span>
+                <div class="contact-method reveal reveal-up" style="transition-delay: 0.2s;">
+                  <div class="contact-icon-wrapper">
+                    <i class="fas fa-phone-volume"></i>
+                  </div>
                   <div>
                     <h4>Téléphone</h4>
                     <p>+225 05 04 35 13 06 <br> +225 01 50 71 60 29</p>
                   </div>
                 </div>
-                <div class="contact-method">
-                  <span class="contact-emoji"></span>
+                <div class="contact-method reveal reveal-right" style="transition-delay: 0.3s;">
+                  <div class="contact-icon-wrapper">
+                    <i class="fas fa-map-marked-alt"></i>
+                  </div>
                   <div>
                     <h4>Localisation</h4>
                     <p>Abidjan, Côte d'Ivoire</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="social-section">
-              <h3>Retrouvez-moi sur</h3>
-              <div class="social-links">
-                <a href="https://github.com/adjahossousamuelisaac-gif" class="social-link"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/adjahossou-achi-samuel-isaac-romaric-08679a3b1" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-                <a href="https://www.instagram.com/samuel2696354" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
-                <!-- <a href="#" class="social-link"><i class="fas fa-code-branch"></i> Stack Overflow</a> -->
-              </div>
-            </div>
 
-            <a href="#Contact" class="btn btn-primary contact-btn"
-              >Envoyer un message</a
-            >
+              <div class="social-section reveal reveal-up">
+                <h3>Suivez mon actualité</h3>
+                <div class="social-links">
+                  <a href="https://github.com/adjahossousamuelisaac-gif" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                  <a href="https://www.linkedin.com/in/adjahossou-achi-samuel-isaac-romaric-08679a3b1" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                  <a href="https://www.instagram.com/samuel2696354" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+              </div>
+
+              <a href="#Contact" class="btn btn-primary contact-btn reveal reveal-up">
+                Lancer la discussion <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
+              </a>
+            </div>
           </div>
         </div>
         <!-- Contrôles du carrousel -->
@@ -168,9 +194,9 @@
         </div>
       </div>
       <div id="Competences">
-        <h2>Mes Compétences</h2>
+        <h2 class="reveal reveal-up">Mes Compétences</h2>
         <div class="skills-container">
-          <div class="skill-category">
+          <div class="skill-category reveal reveal-left">
             <h3><span><i class="fas fa-code"></i></span> Frontend</h3>
             <ul>
               <li>HTML5 / CSS3 / SASS</li>
@@ -180,7 +206,7 @@
               <li>Bootstrap</li>
             </ul>
           </div>
-          <div class="skill-category">
+          <div class="skill-category reveal reveal-right">
             <h3><span><i class="fas fa-server"></i></span> Backend</h3>
             <ul>
               <li>Spring boot</li>
@@ -189,14 +215,14 @@
               <li>PHP</li>
             </ul>
           </div>
-          <div class="skill-category">
+          <div class="skill-category reveal reveal-left">
             <h3><span><i class="fas fa-database"></i></span> Base de Données</h3>
             <ul>
               <li>MySQL / PostgreSQL</li>
               <li>Firebase</li>
             </ul>
           </div>
-          <div class="skill-category">
+          <div class="skill-category reveal reveal-right">
             <h3><span><i class="fas fa-tools"></i></span> Outils & DevOps</h3>
             <ul>
               <li>Git / GitHub</li>
@@ -209,26 +235,104 @@
         </div>
       </div>
       <div id="Projets">
-        <h2>Mes Projets</h2>
-        <div class="projects-container">
-          <div class="project-card" data-project="1">
-            <h3>Projet 1</h3>
-            <p>Description du projet 1. Ce projet consiste à...</p>
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">JavaScript</span>
-          </div>
-          <div class="project-card" data-project="2">
-            <h3>Projet 2</h3>
-            <p>Description du projet 2. Ce projet consiste à...</p>
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Node.js</span>
-          </div>
-          <div class="project-card" data-project="3">
-            <h3>Projet 3</h3>
-            <p>Description du projet 3. Ce projet consiste à...</p>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Django</span>
+        <h2 class="reveal reveal-up">Mes Projets</h2>
+        <div class="projects-container-wrapper">
+          <div class="projects-container">
+            <div class="project-card reveal reveal-up" data-project="1" style="transition-delay: 0.1s;">
+              <div class="project-card-img">
+                <img src="img/projets/MonBusiness.jpg" alt="MonBusiness">
+              </div>
+              <h3>MonBusiness</h3>
+              <p>
+                <strong>Description du projet</strong><br> 
+                Application de gestion de stock et de ventes pour petits commerçants. 
+              </p>
+              <div class="project-card-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">localStorage</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+            <div class="project-card reveal reveal-up" data-project="2" style="transition-delay: 0.2s;">
+              <div class="project-card-img">
+                <img src="img/projets/Tonti-Connect.jpg" alt="Tontine Connect">
+              </div>
+              <h3>Gestion de Tontine</h3>
+              <p>
+                <strong>Description du projet</strong><br>
+                Plateforme de gestion de tontine en temps réel. Permet aux gérants de suivre les paiements et aux membres de tout voir.
+              </p>
+              <div class="project-card-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Firebase Auth</span>
+                <span class="tech-tag">Firebase Realtime Database</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+            <div class="project-card reveal reveal-up" data-project="3" style="transition-delay: 0.3s;">
+              <div class="project-card-img">
+                <img src="img/projets/SmartRDV.jpg" alt="SmartRDV">
+              </div>
+              <h3>SmartRDV</h3>
+              <p>
+                <strong>Description du projet</strong><br>
+                Application web de gestion de prise de rendez-vous avec architecture React/Spring Boot et système multi-rôles.
+              </p>
+              <div class="project-card-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">MySQL</span>
+              </div>
+            </div>
+            <!-- Duplicata pour défilement infini -->
+            <div class="project-card" data-project="1">
+              <div class="project-card-img">
+                <img src="img/projets/MonBusiness.jpg" alt="MonBusiness">
+              </div>
+              <h3>MonBusiness</h3>
+              <p>
+                <strong>Description du projet</strong><br> 
+                Application de gestion de stock et de ventes pour petits commerçants. 
+              </p>
+              <div class="project-card-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">localStorage</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+            <div class="project-card" data-project="2">
+              <div class="project-card-img">
+                <img src="img/projets/Tonti-Connect.jpg" alt="Tontine Connect">
+              </div>
+              <h3>Gestion de Tontine</h3>
+              <p>
+                <strong>Description du projet</strong><br>
+                Plateforme de gestion de tontine en temps réel. Permet aux gérants de suivre les paiements et aux membres de tout voir.
+              </p>
+              <div class="project-card-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Firebase Auth</span>
+                <span class="tech-tag">Firebase Realtime Database</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+            <div class="project-card" data-project="3">
+              <div class="project-card-img">
+                <img src="img/projets/SmartRDV.jpg" alt="SmartRDV">
+              </div>
+              <h3>SmartRDV</h3>
+              <p>
+                <strong>Description du projet</strong><br>
+                Application web de gestion de prise de rendez-vous avec architecture React/Spring Boot et système multi-rôles.
+              </p>
+              <div class="project-card-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">MySQL</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -242,11 +346,11 @@
         </div>
       </div>
       <div id="Contact">
-        <h2>Contactez-moi</h2>
+        <h2 class="reveal reveal-up">Contactez-moi</h2>
 
         <div class="contact-container">
           <!-- Informations de contact -->
-          <div class="contact-info">
+          <div class="contact-info reveal reveal-left">
             <h3>Parlons de votre projet</h3>
             <p class="contact-description">
               Vous avez un projet en tête ? N'hésitez pas à me contacter. Je
@@ -303,14 +407,14 @@
                 <a href="https://github.com/adjahossousamuelisaac-gif" class="social-link"><i class="fab fa-github"></i> GitHub</a>
                 <a href="https://www.linkedin.com/in/adjahossou-achi-samuel-isaac-romaric-08679a3b1" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
                 <a href="https://www.instagram.com/samuel2696354" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
                 <!-- <a href="#" class="social-link"><i class="fas fa-code-branch"></i> Stack Overflow</a> -->
               </div>
             </div>
           </div>
 
           <!-- Formulaire de contact -->
-          <div class="contact-form">
+          <div class="contact-form reveal reveal-right">
             <h3>Envoyez-moi un message</h3>
             <form id="contactForm" action="#" method="POST">
               <div class="form-group">
@@ -377,7 +481,45 @@
             </div>
           </div>
         </div>
-      </div>
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="logo">
+              <h3>Mon Portfolio</h3>
+            </div>
+            <p>Conception et développement d'expériences numériques d'exception.</p>
+            <div class="footer-social">
+              <a href="https://github.com/adjahossousamuelisaac-gif"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/adjahossou-achi-samuel-isaac-romaric-08679a3b1"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.instagram.com/samuel2696354"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="#Accueil">Accueil</a></li>
+              <li><a href="#Projets">Projets</a></li>
+              <li><a href="#Competences">Compétences</a></li>
+              <li><a href="CV/MON_CV.html">Mon CV</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <ul>
+              <li><i class="fas fa-envelope"></i> adjahossousamuelisaac@gmail.com</li>
+              <li><i class="fas fa-phone"></i> +225 0504351306</li>
+              <li><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2026 Adjahossou Achi Samuel. Tous droits réservés.</p>
+          <a href="#Accueil" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
