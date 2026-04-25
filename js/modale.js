@@ -15,8 +15,8 @@ const projectsData = {
         longDescription: "Cette plateforme digitalise les tontines traditionnelles pour garantir une transparence totale.\n\nElle automatise le suivi des paiements, la détermination des bénéficiaires et la synchronisation en temps réel entre tous les membres. C'est l'outil idéal pour sécuriser l'épargne collective et éviter les conflits.",
         image: "img/projets/Tonti-Connect.jpg",
         technologies: ["React", "Node.js", "Firebase", "CSS"],
-        link: "https://samdev-tontine.netlify.app/", 
-        linkText: "Voir le projet"
+        link: "#", 
+        linkText: "En cours de déploiement"
     },
     3: {
         title: "SmartRDV",
