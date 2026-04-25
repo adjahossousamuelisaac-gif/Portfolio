@@ -1319,6 +1319,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   color: var(--text-main);
   transition: var(--transition-smooth);
   border: 1px solid var(--glass-border);
