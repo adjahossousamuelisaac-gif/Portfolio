@@ -209,11 +209,11 @@ p {
 header {
   position: fixed;
   top: 20px;
-  left: 5%;
-  right: 5%;
-  width: auto;
-  max-width: 1200px;
+  left: 0;
+  right: 0;
   margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
   padding: 0.8rem 2rem;
   background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(20px) saturate(180%);
@@ -266,12 +266,16 @@ header::before {
 
 .logo h3 {
   margin: 0;
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.logo h3 span {
   background: var(--gradient-main);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-weight: 800;
-  letter-spacing: -0.5px;
 }
 
 nav ul {
@@ -914,7 +918,8 @@ section {
     right: 0;
   }
 
-  nav#nav-menu ul {
+  nav#nav-menu.active ul,
+  nav.active ul {
     display: flex !important; /* Force display when inside the mobile nav container */
     flex-direction: column;
     gap: 2.5rem !important;

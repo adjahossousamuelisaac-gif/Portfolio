@@ -4,8 +4,9 @@
 header {
   position: fixed;
   top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 90%;
   max-width: 1200px;
   padding: 0.8rem 2rem;
@@ -54,13 +55,17 @@ header::before {
 
 .logo h3 {
   margin: 0;
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.logo h3 span {
   background: var(--gradient-main);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-weight: 800;
-  font-size: 1.5rem;
-  letter-spacing: -0.5px;
 }
 
 nav ul {
@@ -121,9 +126,20 @@ nav ul li a:hover::after {
 }
 @media (max-width: 576px) {
   header {
-    flex-direction: row; /* Keep it horizontal on mobile for the toggle */
-    justify-content: space-between;
-    padding: 0.8rem 1.5rem;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 16px;
+    overflow: visible; /* Required to let mobile menu be visible */
+  }
+
+  header.menu-open {
+    background: var(--bg-dark); /* Solid background when menu is open */
+  }
+
+  nav ul {
+    display: none; /* Hide desktop nav items by default on mobile */
   }
   
   .menu-toggle {
@@ -154,9 +170,12 @@ nav ul li a:hover::after {
     right: 0;
   }
 
-  nav ul {
+  nav#nav-menu.active ul,
+  nav.active ul {
+    display: flex !important;
     flex-direction: column;
     gap: 2rem !important;
+    padding: 0;
   }
 }
 
