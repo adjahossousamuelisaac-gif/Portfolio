@@ -636,4 +636,26 @@ h1 {
     h1 {
         font-size: 2em;
     }
+
+    /* Carousel Buttons Mobile Adjustments */
+    .carrousel-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        background: rgba(0, 0, 0, 0.5); /* Add background for visibility */
+        border-color: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .prev {
+        left: 5px;
+    }
+
+    .next {
+        right: 5px;
+    }
+
+    .carrousel-dots {
+        bottom: 10px;
+    }
 }

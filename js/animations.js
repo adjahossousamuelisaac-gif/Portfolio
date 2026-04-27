@@ -50,8 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('#nav-menu ul li a');
 
     if (mobileMenu && navMenu) {
+        const header = document.querySelector('header');
         mobileMenu.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            header.classList.toggle('menu-open');
             const icon = mobileMenu.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
@@ -61,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                header.classList.remove('menu-open');
                 const icon = mobileMenu.querySelector('i');
                 icon.classList.add('fa-bars');
                 icon.classList.remove('fa-times');
