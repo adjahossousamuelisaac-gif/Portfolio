@@ -286,24 +286,4 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
     
-    // 9. TEST DE CONNEXION EMAILJS AU CHARGEMENT
-    // ============================
-    console.log('✅ EmailJS initialisé avec la clé: N8gblyAyIB2xvPVIM');
-    console.log('📧 Service ID:', serviceID);
-    console.log('📝 Template ID:', templateID);
-    console.log('🎯 Les messages seront reçus sur: adjahossousamuelisaac@gmail.com');
-    
-    // Test optionnel pour vérifier que le service est accessible
-    emailjs.send(serviceID, templateID, {
-        name: 'Test',
-        title: 'Test de configuration',
-        from_email: 'test@example.com',
-        message: 'Ceci est un test automatique'
-    })
-    .then(function() {
-        console.log('✅ Test de connexion EmailJS réussi !');
-    })
-    .catch(function(error) {
-        console.warn('⚠️ Test de connexion EmailJS échoué (normal si pas de formulaire soumis)');
-    });
 });
