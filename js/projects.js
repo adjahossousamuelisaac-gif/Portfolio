@@ -27,7 +27,7 @@ window.projectsData = {
             problem: "Le manque de transparence et les erreurs de suivi manuel dans les tontines traditionnelles.",
             solution: "Plateforme cloud sécurisée avec synchronisation en temps réel et notifications.",
             result: "Zéro litige constaté sur les groupes tests grâce à la transparence des données.",
-            linkText: "En cours de déploiement"
+            linkText: "Voir le projet..."
         },
         en: {
             title: "Tontine Connect",
@@ -35,7 +35,7 @@ window.projectsData = {
             problem: "Lack of transparency and manual tracking errors in traditional tontines.",
             solution: "Secure cloud platform with real-time synchronization and notifications.",
             result: "Zero disputes reported in test groups thanks to data transparency.",
-            linkText: "Under deployment"
+            linkText: "View project"
         },
         image: "img/projets/Tonti-Connect.jpg",
         technologies: ["React", "Node.js", "Firebase", "CSS"],
