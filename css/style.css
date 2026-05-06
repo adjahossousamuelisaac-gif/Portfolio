@@ -323,6 +323,30 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
+.lang-toggle-btn {
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  min-width: 45px;
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-toggle-btn:hover {
+  background: var(--primary-glow);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
 /* ========================================
    SECTION PRINCIPALE
    ======================================== */
@@ -925,6 +949,15 @@ section {
 
   nav ul li a {
     font-size: 1.2rem;
+  }
+
+  .lang-toggle-btn {
+    margin-left: 0;
+    margin-top: 5px;
+    width: 120px;
+    height: 45px;
+    font-size: 1rem;
+    border-radius: 25px;
   }
 }
 
