@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="all-projects-title">Tous mes Projets | Développeur Premium</title>
+    <title data-i18n="all-projects-page-title">Projets Réalisés | Adjahossou Samuel</title>
+    <meta name="description" content="Explorez la galerie complète des projets web et applications mobiles réalisés par Adjahossou Samuel.">
+    <meta property="og:title" content="Projets Réalisés | Adjahossou Samuel">
+    <meta property="og:description" content="Galerie de projets web innovants.">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -136,7 +139,7 @@
                     
                     card.innerHTML = `
                         <div class="project-card-img">
-                            <img src="${project.image}" alt="${content.title}">
+                            <img src="${project.image}" alt="${content.title}" loading="lazy">
                         </div>
                         <div class="project-card-content">
                             <h3>${content.title}</h3>

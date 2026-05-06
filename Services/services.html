@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="services-page-title">Services Proposés - Adjahossou Samuel</title>
+    <title data-i18n="services-page-title">Services & Expertise | Adjahossou Samuel</title>
+    <meta name="description" content="Développement sur mesure, Applications React, et Solutions Digitales. Découvrez comment je peux aider votre entreprise.">
+    <meta property="og:title" content="Services & Expertise | Adjahossou Samuel">
+    <meta property="og:description" content="Des solutions web haut de gamme pour vos besoins.">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,6 +25,23 @@
     <script src="../js/contact.js" defer></script>
   </head>
   <body>
+    <!-- Loader de page -->
+    <div id="loader" style="position: fixed; inset: 0; background: var(--bg-dark); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease, visibility 0.8s;">
+        <div class="loader-content" style="text-align: center;">
+            <div class="loader-spinner" style="width: 50px; height: 50px; border: 3px solid var(--primary-glow); border-top-color: var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <p style="margin-top: 15px; font-weight: 700; letter-spacing: 2px; color: var(--primary-color);">SERVICES</p>
+        </div>
+    </div>
+    <style>
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.visibility = 'hidden', 800);
+        });
+    </script>
     <!-- Animations d'arrière-plan -->
     <div class="background-animations">
       <div class="blob blob-1"></div>

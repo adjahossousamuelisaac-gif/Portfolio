@@ -3,7 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mon Portfolio | Développeur Premium</title>
+    <title data-i18n="page-title">Portfolio | Adjahossou Samuel - Développeur Web Fullstack</title>
+    <meta name="description" content="Découvrez le portfolio d'Adjahossou Samuel, développeur web fullstack spécialisé en React, Node.js et solutions digitales innovantes.">
+    <meta name="keywords" content="Adjahossou Samuel, Développeur Web, Portfolio, React, Node.js, Côte d'Ivoire, Abidjan">
+    <meta name="author" content="Adjahossou Samuel">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adjahossousamuel.com/">
+    <meta property="og:title" content="Adjahossou Samuel | Développeur Web Fullstack">
+    <meta property="og:description" content="Découvrez mes projets et services en développement web.">
+    <meta property="og:image" content="https://adjahossousamuel.com/img/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://adjahossousamuel.com/">
+    <meta property="twitter:title" content="Adjahossou Samuel | Développeur Web Fullstack">
+    <meta property="twitter:description" content="Découvrez mes projets et services en développement web.">
+    <meta property="twitter:image" content="https://adjahossousamuel.com/img/og-image.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Adjahossou Samuel",
+      "url": "https://adjahossousamuel.com",
+      "jobTitle": "Développeur Web Fullstack",
+      "sameAs": [
+        "https://github.com/adjahossousamuelisaac-gif",
+        "https://www.linkedin.com/in/adjahossou-achi-samuel-isaac-romaric-08679a3b1"
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,6 +64,27 @@
     <script src="js/animations.js" defer></script>
   </head>
   <body>
+    <!-- Loader de page -->
+    <div id="loader" style="position: fixed; inset: 0; background: var(--bg-dark); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease, visibility 0.8s;">
+        <div class="loader-content" style="text-align: center;">
+            <div class="loader-spinner" style="width: 50px; height: 50px; border: 3px solid var(--primary-glow); border-top-color: var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <p style="margin-top: 15px; font-weight: 700; letter-spacing: 2px; color: var(--primary-color);">SAMUEL</p>
+        </div>
+    </div>
+    <style>
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.visibility = 'hidden', 800);
+        });
+    </script>
+    
+    <!-- Curseurs Personnalisés -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-outline"></div>
     <!-- Animations d'arrière-plan -->
     <div class="background-animations">
       <div class="blob blob-1"></div>

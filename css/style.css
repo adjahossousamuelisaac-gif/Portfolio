@@ -114,6 +114,39 @@ body {
   background: var(--bg-dark);
   margin: 0;
   padding: 0;
+  cursor: none; /* Hide default cursor for custom one */
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 10px;
+  height: 10px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.1s ease;
+}
+
+.custom-cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--primary-glow);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
+}
+
+/* Cursor states */
+.custom-cursor.link-hover { transform: scale(3); opacity: 0.5; }
+.custom-cursor-outline.link-hover { transform: scale(1.5); border-color: var(--primary-color); }
+
+@media (max-width: 1024px) {
+  body { cursor: auto; }
+  .custom-cursor, .custom-cursor-outline { display: none; }
 }
 
 #main {
@@ -455,14 +488,40 @@ section {
 /* ========================================
    CARDS ET CONTENEURS
    ======================================== */
-.card {
+.project-card, .service-card, .stat-item, .card {
   background: var(--bg-card);
   border-radius: 15px;
   padding: 2rem;
-  box-shadow: var(--box-shadow);
-  transition: var(--transition);
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.project-card::before, .service-card::before, .stat-item::before, .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(59, 130, 246, 0.15),
+    transparent 40%
+  );
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.project-card:hover::before, .service-card:hover::before, .stat-item:hover::before, .card:hover::before {
+  opacity: 1;
+}
+
+/* Ensure content stays above the glow */
+.project-card *, .service-card *, .stat-item *, .card * {
+  position: relative;
+  z-index: 1;
 }
 
 .card:hover {

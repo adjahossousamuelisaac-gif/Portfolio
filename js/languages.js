@@ -1,5 +1,9 @@
 window.translations = {
     fr: {
+        'page-title': 'Portfolio | Adjahossou Samuel - Développeur Web Fullstack',
+        'all-projects-page-title': 'Projets Réalisés | Adjahossou Samuel',
+        'services-page-title': 'Services & Expertise | Adjahossou Samuel',
+        'cv-title': 'CV | Adjahossou Samuel',
         'logo-mon': 'Mon',
         'nav-home': 'Accueil',
         'nav-about': 'À propos',
@@ -123,6 +127,10 @@ window.translations = {
         'form-error-generic': 'Erreur lors de l\'envoi. Veuillez réessayer.'
     },
     en: {
+        'page-title': 'Portfolio | Adjahossou Samuel - Fullstack Web Developer',
+        'all-projects-page-title': 'Realized Projects | Adjahossou Samuel',
+        'services-page-title': 'Services & Expertise | Adjahossou Samuel',
+        'cv-title': 'Resume | Adjahossou Samuel',
         'logo-mon': 'My',
         'nav-home': 'Home',
         'nav-about': 'About',
