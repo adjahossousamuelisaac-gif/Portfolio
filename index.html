@@ -26,6 +26,9 @@
     ></script>
     <script src="js/contact.js" defer></script>
     <script src="js/theme.js" defer></script>
+    <script src="js/languages.js" defer></script>
+    <script src="js/projects.js" defer></script>
+    <script src="js/i18n.js" defer></script>
     <script src="js/animations.js" defer></script>
   </head>
   <body>
@@ -37,21 +40,27 @@
     </div>
     <header>
       <div class="logo">
-        <h3>Mon <span>Portfolio</span></h3>
+        <h3><span data-i18n="logo-mon">Mon</span> <span>Portfolio</span></h3>
       </div>
       <div class="menu-toggle" id="mobile-menu">
         <i class="fas fa-bars"></i>
       </div>
       <nav id="nav-menu">
         <ul>
-          <li><a href="#Accueil">Accueil</a></li>
-          <li><a href="#APropos">À propos</a></li>
-          <li><a href="#Projets">Projets</a></li>
-          <li><a href="#Competences">Compétences</a></li>
-          <li><a href="CV/MON_CV.html">Mon CV</a></li>
-          <li><a href="#Contact">Contact</a></li>
+          <li><a href="#Accueil" data-i18n="nav-home">Accueil</a></li>
+          <li><a href="#APropos" data-i18n="nav-about">À propos</a></li>
+          <li><a href="#Projets" data-i18n="nav-projects">Projets</a></li>
+          <li><a href="Services/services.html" data-i18n="nav-services">Services</a></li>
+          <li><a href="#Competences" data-i18n="nav-skills">Compétences</a></li>
+          <li><a href="CV/MON_CV.html" data-i18n="nav-cv">Mon CV</a></li>
+          <li><a href="#Contact" data-i18n="nav-contact">Contact</a></li>
           <li>
-            <button id="themeToggle" class="btn btn-secondary" style="padding: 0.4rem 1rem; border-radius: 50%; min-width: 40px;">
+            <button id="langToggle" class="lang-toggle-btn">
+              EN
+            </button>
+          </li>
+          <li>
+            <button id="themeToggle" class="lang-toggle-btn">
               <i class="fas fa-sun"></i>
             </button>
           </li>
@@ -68,40 +77,40 @@
               <div class="presentation-header">
                 <div class="photo-container">
                   <img src="img/photo_.png" alt="photo_profil" class="photo-profil">
-                  <div class="availability-badge"><i class="fas fa-circle"></i> Disponible pour vos projets</div>
+                  <div class="availability-badge" data-i18n="hero-badge"><i class="fas fa-circle"></i> Disponible pour vos projets</div>
                 </div>
                 <div class="presentation-text">
                   <h1 class="animate-text-gradient">Adjahossou Achi Samuel</h1>
                   <p class="title-tag">
-                    <span class="highlight typewriter">Développeur Full Stack</span>
+                    <span class="highlight typewriter" data-i18n="hero-title-tag">Développeur Full Stack</span>
                   </p>
                   <div class="traits-container">
-                    <span class="trait reveal reveal-up" style="transition-delay: 0.1s;"><i class="fas fa-rocket"></i> Passionné</span>
-                    <span class="trait reveal reveal-up" style="transition-delay: 0.2s;"><i class="fas fa-brain"></i> Curieux</span>
-                    <span class="trait reveal reveal-up" style="transition-delay: 0.3s;"><i class="fas fa-check-circle"></i> Rigoureux</span>
+                    <span class="trait reveal reveal-up" style="transition-delay: 0.1s;" data-i18n="hero-trait-1"><i class="fas fa-rocket"></i> Passionné</span>
+                    <span class="trait reveal reveal-up" style="transition-delay: 0.2s;" data-i18n="hero-trait-2"><i class="fas fa-brain"></i> Curieux</span>
+                    <span class="trait reveal reveal-up" style="transition-delay: 0.3s;" data-i18n="hero-trait-3"><i class="fas fa-check-circle"></i> Rigoureux</span>
                   </div>
                 </div>
               </div>
-              <p class="description reveal reveal-up">
+              <p class="description reveal reveal-up" data-i18n="hero-desc">
                 Expert dans la conception d'expériences numériques modernes. 
                 Je combine créativité et rigueur technique pour transformer vos idées en solutions web performantes, 
                 utilisant les technologies les plus pointues du marché.
               </p>
               <div class="cta-buttons reveal reveal-up">
-                <a href="#Projets" class="btn btn-primary">Explorer mes réalisations</a>
-                <a href="#Contact" class="btn btn-secondary">Me contacter</a>
+                <a href="#Projets" class="btn btn-primary" data-i18n="hero-btn-explore">Explorer mes réalisations</a>
+                <a href="#Contact" class="btn btn-secondary" data-i18n="hero-btn-contact">Me contacter</a>
               </div>
             </div>
           </div>
           <!-- Slide 2: Projets Récents -->
           <div class="carrousel-item">
             <div class="carrousel-content glass">
-              <h2 class="center animate-text-gradient">Réalisations Récentes</h2>
+              <h2 class="center animate-text-gradient" data-i18n="recent-projects-title">Réalisations Récentes</h2>
               <div class="projects-grid">
                 <div class="project-card-mini reveal reveal-left">
                   <div class="project-header">
                     <i class="fas fa-store-alt project-icon-large"></i>
-                    <span class="badge-new">Nouveau</span>
+                    <span class="badge-new" data-i18n="badge-new">Nouveau</span>
                   </div>
                   <h3>MonBusiness</h3>
                   <p>Gestion intelligente de stock et de bénéfices réels pour commerçants.</p>
@@ -113,7 +122,7 @@
                 <div class="project-card-mini reveal reveal-right">
                   <div class="project-header">
                     <i class="fas fa-users-cog project-icon-large"></i>
-                    <span class="badge-hot">Populaire</span>
+                    <span class="badge-hot" data-i18n="badge-hot">Populaire</span>
                   </div>
                   <h3>Tontine Connect</h3>
                   <p>Digitalisation sécurisée des épargnes collectives en temps réel.</p>
@@ -124,7 +133,7 @@
                 </div>
               </div>
               <div class="center-btn reveal reveal-up">
-                <a href="#Projets" class="btn btn-primary">
+                <a href="#Projets" class="btn btn-primary" data-i18n="btn-all-projects">
                   Voir tous les projets <i class="fas fa-arrow-right"></i>
                 </a>
               </div>
@@ -133,8 +142,8 @@
           <!-- Slide 3: Contact & Collaboration -->
           <div class="carrousel-item">
             <div class="carrousel-content contact-slide glass">
-              <h2 class="center animate-text-gradient">Prêt à donner vie à vos projets ?</h2>
-              <p class="contact-intro reveal reveal-up">
+              <h2 class="center animate-text-gradient" data-i18n="contact-slide-title">Prêt à donner vie à vos projets ?</h2>
+              <p class="contact-intro reveal reveal-up" data-i18n="contact-slide-intro">
                 Qu'il s'agisse d'une application web complexe ou d'une solution sur mesure, 
                 je transforme vos idées en réalité numérique performante et élégante.
               </p>
@@ -170,7 +179,7 @@
               </div>
 
               <div class="social-section reveal reveal-up">
-                <h3>Suivez mon actualité</h3>
+                <h3 data-i18n="contact-follow-title">Suivez mon actualité</h3>
                 <div class="social-links">
                   <a href="https://github.com/adjahossousamuelisaac-gif" class="social-link"><i class="fab fa-github"></i> GitHub</a>
                   <a href="https://www.linkedin.com/in/adjahossou-achi-samuel-isaac-romaric-08679a3b1" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
@@ -178,7 +187,7 @@
                 </div>
               </div>
 
-              <a href="#Contact" class="btn btn-primary contact-btn reveal reveal-up">
+              <a href="#Contact" class="btn btn-primary contact-btn reveal reveal-up" data-i18n="btn-start-chat">
                 Lancer la discussion <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
               </a>
             </div>
@@ -198,7 +207,7 @@
       <!-- Section À Propos -->
       <section id="APropos" class="section-padding">
         <div class="container">
-          <h2 class="reveal reveal-up">À Propos de Moi</h2>
+          <h2 class="reveal reveal-up" data-i18n="about-title">À Propos de Moi</h2>
           <div class="about-container">
             <div class="about-image reveal reveal-left">
               <div class="image-wrapper">
@@ -207,14 +216,14 @@
             </div>
             <div class="about-text reveal reveal-right">
               <h3>Adjahossou Achi Samuel</h3>
-              <p class="about-subtitle">Étudiant en MIAGE & Développeur Full Stack</p>
-              <p>
+              <p class="about-subtitle" data-i18n="about-subtitle">Étudiant en MIAGE & Développeur Full Stack</p>
+              <p data-i18n="about-p1">
                 Passionné par l'informatique, je suis actuellement étudiant en 
                 <strong>Licence 3 MIAGE</strong> à l'Université Polytechnique de Bingerville. 
                 Mon parcours est guidé par une curiosité insatiable et une rigueur qui me pousse à 
                 relever des défis technologiques complexes.
               </p>
-              <p>
+              <p data-i18n="about-p2">
                 À 19 ans, je combine mes études avec une pratique autodidacte intensive du développement web, 
                 me spécialisant dans les architectures modernes comme <strong>React</strong> et <strong>Spring Boot</strong>. 
                 Mon objectif est de créer des solutions numériques qui apportent une réelle valeur ajoutée.
@@ -222,20 +231,20 @@
               <div class="about-stats">
                 <div class="stat-item">
                   <span class="stat-number">3+</span>
-                  <span class="stat-label">Projets</span>
+                  <span class="stat-label" data-i18n="stat-projects">Projets</span>
                 </div>
                 <div class="stat-item">
                   <span class="stat-number">19</span>
-                  <span class="stat-label">Ans</span>
+                  <span class="stat-label" data-i18n="stat-years">Ans</span>
                 </div>
                 <div class="stat-item">
                   <span class="stat-number">L3</span>
-                  <span class="stat-label">Niveau</span>
+                  <span class="stat-label" data-i18n="stat-level">Niveau</span>
                 </div>
               </div>
               <div class="about-cta">
-                <a href="#Parcours" class="btn btn-primary"><i class="fas fa-graduation-cap" style="margin-right: 10px;"></i> Découvrir mon parcours</a>
-                <a href="CV/MON_CV.html" class="btn btn-secondary"><i class="fas fa-file-alt" style="margin-right: 10px;"></i> Voir mon CV Complet</a>
+                <a href="#Parcours" class="btn btn-primary" data-i18n="btn-path"><i class="fas fa-graduation-cap" style="margin-right: 10px;"></i> Découvrir mon parcours</a>
+                <a href="CV/MON_CV.html" class="btn btn-secondary" data-i18n="btn-cv"><i class="fas fa-file-alt" style="margin-right: 10px;"></i> Voir mon CV Complet</a>
               </div>
             </div>
           </div>
@@ -243,7 +252,7 @@
       </section>
 
       <div id="Competences">
-        <h2 class="reveal reveal-up">Mes Compétences</h2>
+        <h2 class="reveal reveal-up" data-i18n="skills-title">Mes Compétences</h2>
         <div class="skills-container">
           <div class="skill-category reveal reveal-left">
             <h3><span><i class="fas fa-code"></i></span> Frontend</h3>
@@ -286,7 +295,7 @@
 
       </div>
       <div id="Projets">
-        <h2 class="reveal reveal-up">Mes Projets</h2>
+        <h2 class="reveal reveal-up" data-i18n="projects-title">Mes Projets</h2>
         <div class="projects-container-wrapper">
           <div class="projects-container">
             <div class="project-card reveal reveal-up" data-project="1" style="transition-delay: 0.1s;">
@@ -295,7 +304,7 @@
               </div>
               <h3>MonBusiness</h3>
               <p>
-                <strong>Description du projet</strong><br> 
+                <strong data-i18n="project-desc">Description du projet</strong><br> 
                 Application de gestion de stock et de ventes pour petits commerçants. 
               </p>
               <div class="project-card-tech">
@@ -311,7 +320,7 @@
               </div>
               <h3>Gestion de Tontine</h3>
               <p>
-                <strong>Description du projet</strong><br>
+                <strong data-i18n="project-desc">Description du projet</strong><br>
                 Plateforme de gestion de tontine en temps réel. Permet aux gérants de suivre les paiements et aux membres de tout voir.
               </p>
               <div class="project-card-tech">
@@ -327,7 +336,7 @@
               </div>
               <h3>SmartRDV</h3>
               <p>
-                <strong>Description du projet</strong><br>
+                <strong data-i18n="project-desc">Description du projet</strong><br>
                 Application web de gestion de prise de rendez-vous avec architecture React/Spring Boot et système multi-rôles.
               </p>
               <div class="project-card-tech">
@@ -336,54 +345,14 @@
                 <span class="tech-tag">MySQL</span>
               </div>
             </div>
-            <!-- Duplicata pour défilement infini -->
-            <div class="project-card" data-project="1">
-              <div class="project-card-img">
-                <img src="img/projets/MonBusiness.jpg" alt="MonBusiness">
-              </div>
-              <h3>MonBusiness</h3>
-              <p>
-                <strong>Description du projet</strong><br> 
-                Application de gestion de stock et de ventes pour petits commerçants. 
-              </p>
-              <div class="project-card-tech">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Vite</span>
-                <span class="tech-tag">localStorage</span>
-                <span class="tech-tag">CSS</span>
-              </div>
-            </div>
-            <div class="project-card" data-project="2">
-              <div class="project-card-img">
-                <img src="img/projets/Tonti-Connect.jpg" alt="Tontine Connect">
-              </div>
-              <h3>Gestion de Tontine</h3>
-              <p>
-                <strong>Description du projet</strong><br>
-                Plateforme de gestion de tontine en temps réel. Permet aux gérants de suivre les paiements et aux membres de tout voir.
-              </p>
-              <div class="project-card-tech">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Firebase Auth</span>
-                <span class="tech-tag">Firebase Realtime Database</span>
-                <span class="tech-tag">CSS</span>
-              </div>
-            </div>
-            <div class="project-card" data-project="3">
-              <div class="project-card-img">
-                <img src="img/projets/SmartRDV.jpg" alt="SmartRDV">
-              </div>
-              <h3>SmartRDV</h3>
-              <p>
-                <strong>Description du projet</strong><br>
-                Application web de gestion de prise de rendez-vous avec architecture React/Spring Boot et système multi-rôles.
-              </p>
-              <div class="project-card-tech">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">MySQL</span>
-              </div>
-            </div>
+
+          </div>
+          
+          <!-- Lien Voir tous les projets -->
+          <div class="view-all-projects-container" style="text-align: center; margin-top: 50px;">
+              <a href="projects-list.html" class="btn btn-primary reveal reveal-up">
+                  Voir tous les projets <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+              </a>
           </div>
         </div>
       </div>
@@ -400,7 +369,7 @@
       <!-- Section Parcours -->
       <section id="Parcours" class="section-padding">
         <div class="container">
-          <h2 class="reveal reveal-up">Mon Parcours Académique</h2>
+          <h2 class="reveal reveal-up" data-i18n="path-title">Mon Parcours Académique</h2>
           <div class="timeline">
             <!-- Item 1 -->
             <div class="timeline-item reveal reveal-left">
@@ -445,13 +414,13 @@
       </section>
 
       <div id="Contact">
-        <h2 class="reveal reveal-up">Contactez-moi</h2>
+        <h2 class="reveal reveal-up" data-i18n="contact-section-title">Contactez-moi</h2>
 
         <div class="contact-container">
           <!-- Informations de contact -->
           <div class="contact-info reveal reveal-left">
-            <h3>Parlons de votre projet</h3>
-            <p class="contact-description">
+            <h3 data-i18n="contact-talk-title">Parlons de votre projet</h3>
+            <p class="contact-description" data-i18n="contact-talk-desc">
               Vous avez un projet en tête ? N'hésitez pas à me contacter. Je
               suis toujours disponible pour discuter de nouvelles idées et
               collaborations.
@@ -463,7 +432,7 @@
                   <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <div class="info-content">
-                  <h4>Localisation</h4>
+                  <h4 data-i18n="contact-info-loc">Localisation</h4>
                   <p>Abidjan, Côte d'Ivoire</p>
                 </div>
               </div>
@@ -473,7 +442,7 @@
                   <i class="fas fa-envelope"></i>
                 </div>
                 <div class="info-content">
-                  <h4>Email</h4>
+                  <h4 data-i18n="form-email">Email</h4>
                   <p>adjahossousamuelisaac@gmail.com</p>
                 </div>
               </div>
@@ -483,7 +452,7 @@
                   <i class="fas fa-phone-alt"></i>
                 </div>
                 <div class="info-content">
-                  <h4>Téléphone</h4>
+                  <h4 data-i18n="contact-info-phone">Téléphone</h4>
                   <p>+225 05 04 35 13 06 <br> +225 01 50 71 60 29</p>
                 </div>
               </div>
@@ -493,7 +462,7 @@
                   <i class="fas fa-clock"></i>
                 </div>
                 <div class="info-content">
-                  <h4>Disponibilité</h4>
+                  <h4 data-i18n="contact-info-avail">Disponibilité</h4>
                   <p>Lun - Ven, 9h - 18h</p>
                 </div>
               </div>
@@ -514,53 +483,57 @@
 
           <!-- Formulaire de contact -->
           <div class="contact-form reveal reveal-right">
-            <h3>Envoyez-moi un message</h3>
+            <h3 data-i18n="contact-form-title">Envoyez-moi un message</h3>
             <form id="contactForm" action="#" method="POST">
               <div class="form-group">
-                <label for="name">Nom complet</label>
+                <label for="name" data-i18n="form-name">Nom complet</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
+                  data-i18n="form-name"
                   placeholder="Votre nom"
                   required
                 />
               </div>
 
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email" data-i18n="form-email">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
+                  data-i18n="form-email-placeholder"
                   placeholder="votre@email.com"
                   required
                 />
               </div>
 
               <div class="form-group">
-                <label for="subject">Sujet</label>
+                <label for="subject" data-i18n="form-subject">Sujet</label>
                 <input
                   type="text"
                   id="subject"
                   name="subject"
+                  data-i18n="form-subject"
                   placeholder="Sujet de votre message"
                   required
                 />
               </div>
 
               <div class="form-group">
-                <label for="message">Message</label>
+                <label for="message" data-i18n="form-message">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   rows="6"
+                  data-i18n="form-message"
                   placeholder="Votre message..."
                   required
                 ></textarea>
               </div>
 
-              <button type="submit" class="submit-btn">
+              <button type="submit" class="submit-btn" data-i18n="btn-send">
                 <span>Envoyer le message</span>
                 <i class="fas fa-paper-plane"></i>
               </button>
@@ -586,7 +559,7 @@
             <div class="logo">
               <h3>Mon <span>Portfolio</span></h3>
             </div>
-            <p>Conception et développement d'expériences numériques d'exception.</p>
+            <p data-i18n="footer-desc">Conception et développement d'expériences numériques d'exception.</p>
             <div class="footer-social">
               <a href="https://github.com/adjahossousamuelisaac-gif"><i class="fab fa-github"></i></a>
               <a href="https://www.linkedin.com/in/adjahossou-achi-samuel-isaac-romaric-08679a3b1"><i class="fab fa-linkedin-in"></i></a>
@@ -595,18 +568,18 @@
           </div>
           
           <div class="footer-section">
-            <h4>Navigation</h4>
+            <h4 data-i18n="footer-nav-title">Navigation</h4>
             <ul>
-              <li><a href="#Accueil">Accueil</a></li>
-              <li><a href="#APropos">À propos</a></li>
-              <li><a href="#Projets">Projets</a></li>
-              <li><a href="#Competences">Compétences</a></li>
-              <li><a href="CV/MON_CV.html">Mon CV</a></li>
+              <li><a href="#Accueil" data-i18n="nav-home">Accueil</a></li>
+              <li><a href="#APropos" data-i18n="nav-about">À propos</a></li>
+              <li><a href="#Projets" data-i18n="nav-projects">Projets</a></li>
+              <li><a href="#Competences" data-i18n="nav-skills">Compétences</a></li>
+              <li><a href="CV/MON_CV.html" data-i18n="nav-cv">Mon CV</a></li>
             </ul>
           </div>
           
           <div class="footer-section">
-            <h4>Contact</h4>
+            <h4 data-i18n="nav-contact">Contact</h4>
             <ul>
               <li><i class="fas fa-envelope"></i> adjahossousamuelisaac@gmail.com</li>
               <li><i class="fas fa-phone"></i> +225 0504351306</li>

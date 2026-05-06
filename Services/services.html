@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="services-page-title">Services Proposés - Adjahossou Samuel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/services.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="../js/theme.js" defer></script>
+    <script src="../js/languages.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/recruiter.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/contact.js" defer></script>
+  </head>
+  <body>
+    <!-- Animations d'arrière-plan -->
+    <div class="background-animations">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <header>
+      <div class="logo">
+        <h3><span data-i18n="logo-mon">Mon</span> <span>Portfolio</span></h3>
+      </div>
+      <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav id="nav-menu">
+        <ul>
+          <li><a href="../index.html#Accueil" data-i18n="nav-home">Accueil</a></li>
+          <li><a href="../index.html#APropos" data-i18n="nav-about">À propos</a></li>
+          <li><a href="../index.html#Projets" data-i18n="nav-projects">Projets</a></li>
+          <li><a href="services.html" data-i18n="nav-services">Services</a></li>
+          <li><a href="../CV/MON_CV.html" data-i18n="nav-cv">Mon CV</a></li>
+          <li><a href="../index.html#Contact" data-i18n="nav-contact">Contact</a></li>
+          <li>
+            <button id="langToggle" class="lang-toggle-btn">
+              EN
+            </button>
+          </li>
+          <li>
+            <button id="themeToggle" style="padding: 0.4rem 1rem; border-radius: 50%; min-width: 40px; background: transparent; color: var(--text-main); border: 1px solid var(--glass-border); cursor: pointer;">
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="Services" class="section-padding" style="margin-top: 100px;">
+        <div class="container">
+          <h2 class="reveal reveal-up" data-i18n="services-title">Services Proposés</h2>
+          <div class="services-grid">
+            <div class="service-card reveal reveal-up" style="transition-delay: 0.1s;">
+              <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+              <h3 data-i18n="service-1-title">Développement Web</h3>
+              <p data-i18n="service-1-desc">Création de sites vitrines et plateformes sur mesure.</p>
+              <a href="#DevisForm" class="btn btn-outline" data-i18n="service-cta">Demander un devis</a>
+            </div>
+            <div class="service-card reveal reveal-up" style="transition-delay: 0.2s;">
+              <div class="service-icon"><i class="fab fa-react"></i></div>
+              <h3 data-i18n="service-2-title">Applications React</h3>
+              <p data-i18n="service-2-desc">Interfaces dynamiques et robustes.</p>
+              <a href="#DevisForm" class="btn btn-outline" data-i18n="service-cta">Demander un devis</a>
+            </div>
+            <div class="service-card reveal reveal-up" style="transition-delay: 0.3s;">
+              <div class="service-icon"><i class="fas fa-server"></i></div>
+              <h3 data-i18n="service-3-title">Solutions Backend</h3>
+              <p data-i18n="service-3-desc">APIs sécurisées et architectures évolutives.</p>
+              <a href="#DevisForm" class="btn btn-outline" data-i18n="service-cta">Demander un devis</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="DevisForm" class="section-padding">
+        <div class="container">
+          <div class="quote-form-container glass reveal reveal-up">
+            <h2 data-i18n="quote-title">Demander un devis personnalisé</h2>
+            <form id="quoteForm" class="quote-form">
+              <div class="form-group">
+                <input type="text" id="name" name="from_name" required placeholder="Votre Nom" data-i18n="quote-name">
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" name="from_email" required placeholder="Votre Email" data-i18n="quote-email">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <select id="service" name="service_type" required>
+                    <option value="" disabled selected data-i18n="quote-service">Service souhaité</option>
+                    <option value="web" data-i18n="service-1-title">Développement Web</option>
+                    <option value="react" data-i18n="service-2-title">Applications React</option>
+                    <option value="backend" data-i18n="service-3-title">Solutions Backend</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="budget" name="budget" placeholder="Budget estimé" data-i18n="quote-budget">
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea id="message" name="message" rows="5" required placeholder="Détails de votre projet" data-i18n="quote-message"></textarea>
+              </div>
+              <button type="submit" id="quoteSubmitBtn" class="btn btn-primary" style="width: 100%;">
+                <span data-i18n="quote-send">Envoyer ma demande</span>
+                <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
+              </button>
+            </form>
+            <div id="formSuccess" class="form-success-msg" style="display: none;">
+              <i class="fas fa-check-circle"></i>
+              <p data-i18n="quote-success">Demande envoyée avec succès !</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Initialisation EmailJS
+      (function() {
+          emailjs.init("N8gblyAyIB2xvPVIM");
+      })();
+
+      // Gestion du défilement fluide
+      // Animation de scroll fluide pour les ancres
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const targetId = this.getAttribute('href').slice(1);
+              const targetElement = document.getElementById(targetId);
+              if (targetElement) {
+                  targetElement.scrollIntoView({
+                      behavior: 'smooth'
+                  });
+              }
+          });
+      });
+    </script>
+
+    <footer style="padding: 2rem; text-align: center; color: var(--text-dim);">
+        <p>&copy; 2026 Adjahossou Samuel. <span data-i18n="footer-rights">Tous droits réservés.</span></p>
+    </footer>
+  </body>
+</html>

@@ -1,33 +1,4 @@
-// Données des projets (vous pouvez les remplacer par vos propres données)
-const projectsData = {
-    1: {
-        title: "MonBusiness",
-        description: "Application de gestion de stock et de ventes pour petits commerçants. ",
-        longDescription: "MonBusiness est né d'un besoin réel sur les marchés africains : aider les petits commerçants à voir leurs bénéfices réels.\n\nL'application calcule automatiquement le prix moyen pondéré malgré les variations de prix d'achat. Elle permet un suivi précis du stock sur smartphone, sans besoin de connexion internet constante.",
-        image: "img/projets/MonBusiness.jpg",
-        technologies: ["React", "Vite", "localStorage", "CSS"],
-        link: "https://samdev-monbusiness.netlify.app/",
-        linkText: "Voir le projet"
-    },
-    2: {
-        title: "Tontine Connect",
-        description: "Application de gestion de tontine moderne avec suivi des versements et gestion des membres.",
-        longDescription: "Cette plateforme digitalise les tontines traditionnelles pour garantir une transparence totale.\n\nElle automatise le suivi des paiements, la détermination des bénéficiaires et la synchronisation en temps réel entre tous les membres. C'est l'outil idéal pour sécuriser l'épargne collective et éviter les conflits.",
-        image: "img/projets/Tonti-Connect.jpg",
-        technologies: ["React", "Node.js", "Firebase", "CSS"],
-        link: "#", 
-        linkText: "En cours de déploiement"
-    },
-    3: {
-        title: "SmartRDV",
-        description: "Application web de gestion de prise de rendez-vous avec architecture React/Spring Boot et système multi-rôles.",
-        longDescription: "SmartRDV simplifie la prise de rendez-vous entre entreprises et clients. Grâce à un système multi-rôles (Admin, Entreprise, Client), chaque utilisateur dispose d'un tableau de bord personnalisé.\n\nLe projet inclut une authentification sécurisée et un calendrier de réservation dynamique pour une expérience utilisateur fluide.",
-        image: "img/projets/SmartRDV.jpg",
-        technologies: ["React", "Spring Boot", "MySQL", "XAMPP"],
-        link: "#",
-        linkText: "En cours de développement"
-    }
-};
+// Les données des projets se trouvent maintenant dans js/projects.js
 
 // Récupération des éléments
 const modal = document.getElementById('projectModal');
@@ -58,34 +29,75 @@ function getTechIcon(tech) {
 
 // Fonction pour ouvrir le modal avec les données du projet
 function openProjectModal(projectId) {
-    const project = projectsData[projectId];
+    const lang = localStorage.getItem('portfolio-lang') || 'fr';
+    const projectRaw = window.projectsData[projectId];
+    const dict = window.translations ? window.translations[lang] : null;
     
-    if (project) {
+    if (projectRaw) {
+        const project = { ...projectRaw, ...projectRaw[lang] };
+        
+        const problemLabel = dict ? dict['modal-problem'] : 'Le Problème';
+        const solutionLabel = dict ? dict['modal-solution'] : 'La Solution';
+        const resultLabel = dict ? dict['modal-result'] : 'Le Résultat';
+        const techLabel = dict ? dict['modal-technologies'] : 'Technologies';
+
         modalContent.innerHTML = `
             <h2 class="modal-project-title">
                 <i class="fas fa-project-diagram" style="margin-right: 15px; color: var(--primary-color);"></i>
                 ${project.title}
             </h2>
-            <img src="${project.image}" alt="${project.title}" class="modal-project-image">
-            <div class="modal-section-title">
-                <i class="fas fa-info-circle"></i> À propos du projet
-            </div>
-            <p class="modal-project-description">${project.longDescription || project.description}</p>
             
-            <div class="modal-section-title">
-                <i class="fas fa-tools"></i> Technologies utilisées
+            <div class="modal-grid-2">
+                <!-- Colonne Principale: Image + Description -->
+                <div class="modal-main-col">
+                    <div class="modal-image-container">
+                        <img src="${project.image}" alt="${project.title}" class="modal-project-image">
+                    </div>
+                    
+                    <div class="modal-description-area">
+                        <div class="modal-section-box">
+                            <div class="modal-section-title">
+                                <i class="fas fa-exclamation-triangle"></i> ${problemLabel}
+                            </div>
+                            <p class="modal-project-description">${project.problem || project.description}</p>
+                        </div>
+                        
+                        <div class="modal-section-box">
+                            <div class="modal-section-title">
+                                <i class="fas fa-lightbulb"></i> ${solutionLabel}
+                            </div>
+                            <p class="modal-project-description">${project.solution || project.description}</p>
+                        </div>
+                        
+                        <div class="modal-section-box">
+                            <div class="modal-section-title">
+                                <i class="fas fa-chart-line"></i> ${resultLabel}
+                            </div>
+                            <p class="modal-project-description">${project.result || project.description}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Colonne Latérale: Tech & Lien -->
+                <div class="modal-side-col">
+                    <div class="modal-info-card">
+                        <h4><i class="fas fa-tools"></i> ${techLabel}</h4>
+                        <div class="modal-tech-tags">
+                            ${project.technologies.map(tech => `
+                                <span class="tech-tag">
+                                    ${getTechIcon(tech)} ${tech}
+                                </span>
+                            `).join('')}
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <a href="${project.link}" ${project.link !== '#' ? 'target="_blank"' : ''} class="modal-project-link">
+                                ${project.linkText} <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-tech-tags">
-                ${project.technologies.map(tech => `
-                    <span class="tech-tag">
-                        ${getTechIcon(tech)} ${tech}
-                    </span>
-                `).join('')}
-            </div>
-            
-            <a href="${project.link}" ${project.link !== '#' ? 'target="_blank"' : ''} class="modal-project-link">
-                ${project.linkText} <i class="fas fa-external-link-alt" style="margin-left: 8px; font-size: 0.9em;"></i>
-            </a>
         `;
         
         modal.style.display = 'block';

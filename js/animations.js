@@ -1,24 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                // Optionnel : arrêter d'observer une fois révélé
-                // observer.unobserve(entry.target);
-            } else {
-                // Optionnel : retirer la classe si on veut que l'animation se rejoue
-                entry.target.classList.remove('active');
-            }
-        });
-    }, {
-        threshold: 0.15 // Déclenche quand 15% de l'élément est visible
+const revealOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        } else {
+            entry.target.classList.remove('active');
+        }
     });
+}, {
+    threshold: 0.15 
+});
 
+window.refreshAnimations = function() {
+    const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => {
         revealOnScroll.observe(el);
     });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.refreshAnimations();
 
     // Effet de frappe (Typewriter)
     const typeElements = document.querySelectorAll('.typewriter');

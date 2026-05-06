@@ -12,132 +12,97 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 2. RÉCUPÉRATION DES ÉLÉMENTS
     // ============================
+    // On cherche les différents formulaires possibles (Contact ou Services/Devis)
     const contactForm = document.getElementById('contactForm');
+    const quoteForm = document.getElementById('quoteForm');
     
-    // Vérifier si le formulaire existe sur la page
-    if (!contactForm) {
-        console.error('Formulaire de contact non trouvé ! Vérifie que id="contactForm" existe');
+    // On crée une liste des formulaires à gérer
+    const formsToHandle = [];
+    if (contactForm) formsToHandle.push(contactForm);
+    if (quoteForm) formsToHandle.push(quoteForm);
+    
+    if (formsToHandle.length === 0) {
         return;
     }
-    
-    const submitBtn = document.querySelector('.submit-btn');
-    const successMessage = document.getElementById('successMessage');
     
     // 3. CONFIGURATION DES IDENTIFIANTS EMAILJS
     // ============================
     const serviceID = 'service_kuhmqfw';   // Ton Service ID
     const templateID = 'template_t802wlb';  // Ton Template ID
     
-    // 4. GESTION DE LA SOUMISSION DU FORMULAIRE
+    // 4. GESTION DE LA SOUMISSION POUR CHAQUE FORMULAIRE
     // ============================
-    contactForm.addEventListener('submit', function(e) {
-        // Empêcher le rechargement de la page
-        e.preventDefault();
-        
-        // Récupérer le bouton de soumission (au cas où il n'a pas été trouvé plus tôt)
-        const btn = submitBtn || this.querySelector('.submit-btn');
-        
-        // Sauvegarder le texte original du bouton
-        const originalBtnText = btn.innerHTML;
-        
-        // Désactiver le bouton et afficher l'animation de chargement
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-        
-        // Récupérer les valeurs du formulaire
-        const formData = {
-            name: document.getElementById('name')?.value || '',
-            title: document.getElementById('title')?.value || '',
-            from_email: document.getElementById('email')?.value || '',
-            message: document.getElementById('message')?.value || ''
-        };
-        
-        // Validation supplémentaire (optionnelle)
-        if (!formData.name || !formData.from_email || !formData.message) {
-            alert('Veuillez remplir tous les champs obligatoires');
-            btn.disabled = false;
-            btn.innerHTML = originalBtnText;
-            return;
-        }
-        
-        // Validation d'email
-        if (!isValidEmail(formData.from_email)) {
-            alert('Veuillez entrer une adresse email valide');
-            btn.disabled = false;
-            btn.innerHTML = originalBtnText;
-            return;
-        }
-        
-        // Afficher dans la console pour le débogage
-        console.log('Envoi du formulaire...', formData);
-        console.log('Service ID:', serviceID);
-        console.log('Template ID:', templateID);
-        
-        // 5. ENVOI DU FORMULAIRE AVEC EMAILJS
-        // ============================
-        emailjs.sendForm(serviceID, templateID, this)
-            .then(function(response) {
-                // SUCCÈS
-                console.log('✅ Succès!', response);
-                console.log('Message envoyé à: adjahossousamuelisaac@gmail.com');
-                
-                // Changer le bouton pour indiquer le succès
-                btn.innerHTML = '<i class="fas fa-check-circle"></i> Message envoyé !';
-                btn.style.background = 'linear-gradient(145deg, #28a745, #20c997)';
-                
-                // Réinitialiser le formulaire
-                contactForm.reset();
-                
-                // Afficher le message de succès
-                if (successMessage) {
-                    successMessage.style.display = 'flex';
-                    
-                    // Animation de scroll vers le message de succès
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                } else {
-                    // Créer un message de succès temporaire s'il n'existe pas
-                    showTemporarySuccessMessage(contactForm);
-                }
-                
-                // Remettre le bouton à son état normal après 3 secondes
-                setTimeout(function() {
-                    btn.innerHTML = originalBtnText;
-                    btn.style.background = ''; // Revenir au style original
-                    btn.disabled = false;
-                    
-                    if (successMessage) {
-                        successMessage.style.display = 'none';
-                    }
-                }, 3000);
-            })
-            .catch(function(error) {
-                // ERREUR
-                console.error('❌ Erreur détaillée:', error);
-                
-                // Message d'erreur plus explicite
-                let errorMessage = "Erreur lors de l'envoi. ";
-                
-                if (error.status === 0) {
-                    errorMessage += "Problème de connexion Internet.";
-                } else if (error.status === 401 || error.status === 403) {
-                    errorMessage += "Problème d'authentification EmailJS. Vérifie ta clé publique.";
-                } else if (error.status === 404) {
-                    errorMessage += "Service ou template non trouvé. Vérifie tes IDs.";
-                } else if (error.text) {
-                    errorMessage += error.text;
-                } else {
-                    errorMessage += "Vérifie ta configuration EmailJS.";
-                }
-                
-                alert(errorMessage);
-                
-                // Remettre le bouton à son état normal
-                btn.innerHTML = originalBtnText;
+    formsToHandle.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            // Empêcher le rechargement de la page
+            e.preventDefault();
+            
+            // Récupérer le bouton de soumission
+            const btn = this.querySelector('.submit-btn') || this.querySelector('button[type="submit"]');
+            
+            // Récupérer le message de succès spécifique à cette page
+            const successMessage = document.getElementById('successMessage') || document.getElementById('formSuccess');
+            
+            // Sauvegarder le texte original du bouton
+            const originalBtnText = btn.innerHTML;
+            
+            const lang = localStorage.getItem('portfolio-lang') || 'fr';
+            const dict = window.translations ? window.translations[lang] : null;
+            
+            // Désactiver le bouton et afficher l'animation de chargement
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${dict ? (dict['form-sending'] || 'Envoi...') : 'Envoi...'}`;
+            
+            // Validation d'email
+            const emailInput = this.querySelector('input[type="email"]');
+            if (emailInput && !isValidEmail(emailInput.value)) {
+                alert(dict ? (dict['form-error-email'] || 'Email invalide') : 'Email invalide');
                 btn.disabled = false;
-                
-                // Afficher un message d'erreur temporaire dans le formulaire
-                showTemporaryErrorMessage(contactForm, errorMessage);
-            });
+                btn.innerHTML = originalBtnText;
+                return;
+            }
+            
+            // 5. ENVOI DU FORMULAIRE AVEC EMAILJS
+            // ============================
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(function(response) {
+                    // SUCCÈS
+                    console.log('✅ Succès!', response);
+                    
+                    // Changer le bouton pour indiquer le succès
+                    btn.innerHTML = `<i class="fas fa-check-circle"></i> ${dict ? (dict['form-success'] || 'Envoyé !') : 'Envoyé !'}`;
+                    btn.style.background = 'linear-gradient(145deg, #28a745, #20c997)';
+                    
+                    // Réinitialiser le formulaire
+                    form.reset();
+                    
+                    // Afficher le message de succès
+                    if (successMessage) {
+                        successMessage.style.display = 'flex';
+                    } else {
+                        showTemporarySuccessMessage(form);
+                    }
+                    
+                    // Remettre le bouton à son état normal après 3 secondes
+                    setTimeout(function() {
+                        btn.innerHTML = originalBtnText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                        
+                        if (successMessage) {
+                            successMessage.style.display = 'none';
+                        }
+                    }, 3000);
+                })
+                .catch(function(error) {
+                    // ERREUR
+                    console.error('❌ Erreur:', error);
+                    alert("Erreur lors de l'envoi. Veuillez vérifier votre connexion.");
+                    
+                    btn.innerHTML = originalBtnText;
+                    btn.disabled = false;
+                });
+        });
     });
     
     // 6. FONCTIONS UTILITAIRES
@@ -151,6 +116,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fonction pour afficher un message de succès temporaire
     function showTemporarySuccessMessage(form) {
+        const lang = localStorage.getItem('portfolio-lang') || 'fr';
+        const dict = window.translations ? window.translations[lang] : null;
+        const msg = dict ? (dict['form-success-full'] || 'Message envoyé avec succès !') : 'Message envoyé avec succès !';
+
         const successDiv = document.createElement('div');
         successDiv.className = 'temporary-success';
         successDiv.style.cssText = `
@@ -167,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         successDiv.innerHTML = `
             <i class="fas fa-check-circle" style="font-size: 1.5em;"></i>
-            <span>Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.</span>
+            <span>${msg}</span>
         `;
         
         form.parentNode.insertBefore(successDiv, form.nextSibling);
@@ -182,6 +151,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fonction pour afficher un message d'erreur temporaire
     function showTemporaryErrorMessage(form, message) {
+        const lang = localStorage.getItem('portfolio-lang') || 'fr';
+        const dict = window.translations ? window.translations[lang] : null;
+        const errorMsg = message || (dict ? (dict['form-error-generic'] || 'Erreur') : 'Erreur');
+
         const errorDiv = document.createElement('div');
         errorDiv.className = 'temporary-error';
         errorDiv.style.cssText = `
@@ -198,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         errorDiv.innerHTML = `
             <i class="fas fa-exclamation-circle" style="font-size: 1.5em;"></i>
-            <span>${message}</span>
+            <span>${errorMsg}</span>
         `;
         
         form.parentNode.insertBefore(errorDiv, form.nextSibling);

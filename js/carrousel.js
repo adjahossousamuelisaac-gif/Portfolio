@@ -21,9 +21,10 @@ function showSlides(n) {
     slideIndex = slides.length;
   }
 
-  // Calculer le décalage (chaque slide fait 100vw)
-  const offset = -(slideIndex - 1) * 100;
-  carrousel.style.transform = `translateX(${offset}vw)`;
+  // Calculer le décalage basé sur la largeur réelle de la première slide
+  const slideWidth = slides[0].offsetWidth;
+  const offset = -(slideIndex - 1) * slideWidth;
+  carrousel.style.transform = `translateX(${offset}px)`;
 
   // Mettre à jour l'état actif des slides pour l'animation d'opacité/scale
   for (let i = 0; i < slides.length; i++) {
@@ -42,3 +43,8 @@ function showSlides(n) {
 setInterval(() => {
   changeSlide(1);
 }, 15000);
+
+// Gérer le redimensionnement pour recalculer la position
+window.addEventListener('resize', () => {
+  showSlides(slideIndex);
+});

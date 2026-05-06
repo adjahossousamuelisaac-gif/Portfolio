@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Adjahossou Samuel</title>
+    <title data-i18n="cv-title">CV - Adjahossou Samuel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <script src="../js/theme.js" defer></script>
     <script src="../js/animations.js" defer></script>
+    <script src="../js/languages.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
 </head>
 <body>
     <!-- Animations d'arrière-plan -->
@@ -25,19 +27,27 @@
     </div>
     <header>
         <div class="logo">
-            <h3>Mon <span>Portfolio</span></h3>
+            <h3><span data-i18n="logo-mon">Mon</span> <span>Portfolio</span></h3>
         </div>
         <div class="menu-toggle" id="mobile-menu">
             <i class="fas fa-bars"></i>
         </div>
         <nav id="nav-menu">
             <ul>
-                <li><a href="../index.html#Accueil">Accueil</a></li>
-                <li><a href="../index.html#Projets">Projets</a></li>
-                <li><a href="../index.html#Competences">Compétences</a></li>
-                <li><a href="../index.html#Contact">Contact</a></li>
+                <li><a href="../index.html#Accueil" data-i18n="nav-home">Accueil</a></li>
+                <li><a href="../index.html#APropos" data-i18n="nav-about">À propos</a></li>
+                <li><a href="../index.html#Projets" data-i18n="nav-projects">Projets</a></li>
+                <li><a href="../Services/services.html" data-i18n="nav-services">Services</a></li>
+                <li><a href="../index.html#Competences" data-i18n="nav-skills">Compétences</a></li>
+                <li><a href="MON_CV.html" data-i18n="nav-cv">Mon CV</a></li>
+                <li><a href="../index.html#Contact" data-i18n="nav-contact">Contact</a></li>
                 <li>
-                    <button id="themeToggle" style="padding: 0.4rem 1rem; border-radius: 50%; min-width: 40px; background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); cursor: pointer;">
+                    <button id="langToggle" class="lang-toggle-btn">
+                        EN
+                    </button>
+                </li>
+                <li>
+                    <button id="themeToggle" class="theme-toggle-btn">
                         <i class="fas fa-sun"></i>
                     </button>
                 </li>
@@ -48,7 +58,7 @@
         <div id="d1">
             <img src="images/photo.png" alt="Photo de profil" id="photo" class="reveal reveal-up">
             <section id="contact" class="reveal reveal-left">
-                <h2>CONTACT</h2>
+                <h2 data-i18n="cv-contact">CONTACT</h2>
                 <hr>
                 <p>
                     <img src="images/icone/phone-icon-outline.svg" alt="icone" class="icons">
@@ -69,7 +79,7 @@
             </section>
             <br>
             <section id="competences" class="reveal reveal-left" style="transition-delay: 0.1s;">
-                <h2>COMPÉTENCES</h2>
+                <h2 data-i18n="cv-skills">COMPÉTENCES</h2>
                 <hr>
                 <ul>
                     <li><strong>Langages :</strong> Java, PHP, JavaScript, Python, C++, SQL</li>
@@ -81,23 +91,23 @@
             </section>
             <br>
             <section id="langues" class="reveal reveal-left" style="transition-delay: 0.2s;">
-                <h2>LANGUES</h2>
+                <h2 data-i18n="cv-languages">LANGUES</h2>
                 <hr>
                 <ul>
-                    <li>Français : <input type="range" value="90" disabled></li>
-                    <li>Anglais : <input type="range" value="70" disabled></li>
-                    <li>Espagnol : <input type="range" value="20" disabled></li>
+                    <li data-i18n="cv-lang-fr">Français : <input type="range" value="90" disabled></li>
+                    <li data-i18n="cv-lang-en">Anglais : <input type="range" value="70" disabled></li>
+                    <li data-i18n="cv-lang-es">Espagnol : <input type="range" value="20" disabled></li>
                 </ul>
             </section>
             <br>
             <section id="loisirs" class="reveal reveal-left" style="transition-delay: 0.3s;">
-                <h2>CENTRES D'INTÉRÊT</h2>
+                <h2 data-i18n="cv-interests">CENTRES D'INTÉRÊT</h2>
                 <hr>
                 <ul>
-                    <li>Basketball</li>
-                    <li>Voyages (découverte de nouvelles cultures)</li>
-                    <li>Lecture & Musique</li>
-                    <li>Documentaires (sciences, histoire)</li>
+                    <li data-i18n="cv-interest-1">Basketball</li>
+                    <li data-i18n="cv-interest-2">Voyages (découverte de nouvelles cultures)</li>
+                    <li data-i18n="cv-interest-3">Lecture & Musique</li>
+                    <li data-i18n="cv-interest-4">Documentaires (sciences, histoire)</li>
                 </ul>
             </section>
         </div>
@@ -109,62 +119,62 @@
             </h1>
             <br>
             <section id="profil" class="reveal reveal-up">
-                <h2>PROFIL</h2>
+                <h2 data-i18n="cv-profile">PROFIL</h2>
                 <hr>
-                <p> 
+                <p data-i18n="cv-profile-text"> 
                     Étudiant en informatique de 19 ans, passionné par le développement et les nouvelles technologies. Autodidacte, curieux et rigoureux, je suis constamment à la recherche de nouveaux défis pour apprendre et progresser. Motivé à mettre mes compétences au service d'une équipe dynamique tout en continuant à me former.
                 </p>
             </section>
             <br>
             <section id="formation" class="reveal reveal-up">
-                <h2>FORMATION</h2>
+                <h2 data-i18n="cv-education">FORMATION</h2>
                 <hr>
                 <div class="reveal reveal-up" style="transition-delay: 0.1s;">
                     <p class="date">2025-2026 :</p>
-                    <h4>Licence 3 MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises)</h4> 
+                    <h4 data-i18n="cv-edu-1-title">Licence 3 MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises)</h4> 
                     <span>Université Polytechnique de Bingerville</span>
                 </div>
                 <br>
                 <div class="reveal reveal-up" style="transition-delay: 0.2s;">
                     <p class="date">2022-2023 :</p>
-                    <h4>BACCALAURÉAT Série C</h4>
+                    <h4 data-i18n="cv-edu-2-title">BACCALAURÉAT Série C</h4>
                     <span>Lycée Moderne 1 d'Adzopé</span>
                 </div>
                 <br>
                 <div class="reveal reveal-up" style="transition-delay: 0.3s;">
                     <p class="date">2019-2020 :</p>
-                    <h4>Brevet d'Études du Premier Cycle (BEPC)</h4> 
+                    <h4 data-i18n="cv-edu-3-title">Brevet d'Études du Premier Cycle (BEPC)</h4> 
                     <span>Lycée Moderne 2 d'Adzopé</span>        
                 </div>
             </section>
             <section id="experiences-professionnelles" class="reveal reveal-up">
-                <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
+                <h2 data-i18n="cv-experience">EXPÉRIENCES PROFESSIONNELLES</h2>
                 <hr>
                 <div class="experience reveal reveal-right" style="transition-delay: 0.1s;">
-                    <h3>Développeur Full Stack - Projet SmartRDV</h3>
-                    <p class="lieu"><strong>Projet académique - Bingerville</strong> | Avril 2026 (en cours)</p>
+                    <h3 data-i18n="cv-exp-1-title">Développeur Full Stack - Projet SmartRDV</h3>
+                    <p class="lieu" data-i18n="cv-exp-1-sub"><strong>Projet académique - Bingerville</strong> | Avril 2026 (en cours)</p>
                     <ul>
-                        <li><strong>Conception et développement</strong> d'une application web de gestion de prise de rendez-vous</li>
-                        <li><strong>Mise en place</strong> d'une architecture Frontend (React + Vite) et Backend (Spring Boot)</li>
-                        <li><strong>Implémentation</strong> d'un système multi-rôles (Administrateur, Entreprise, Client)</li>
-                        <li><strong>Développement des fonctionnalités :</strong>
+                        <li data-i18n="cv-exp-1-li1"><strong>Conception et développement</strong> d'une application web de gestion de prise de rendez-vous</li>
+                        <li data-i18n="cv-exp-1-li2"><strong>Mise en place</strong> d'une architecture Frontend (React + Vite) et Backend (Spring Boot)</li>
+                        <li data-i18n="cv-exp-1-li3"><strong>Implémentation</strong> d'un système multi-rôles (Administrateur, Entreprise, Client)</li>
+                        <li data-i18n="cv-exp-1-li4"><strong>Développement des fonctionnalités :</strong>
                             <ul>
-                                <li>Authentification et gestion des utilisateurs</li>
-                                <li>Réservation de rendez-vous en ligne</li>
-                                <li>Tableaux de bord dynamiques selon le rôle</li>
+                                <li data-i18n="cv-exp-1-li4-s1">Authentification et gestion des utilisateurs</li>
+                                <li data-i18n="cv-exp-1-li4-s2">Réservation de rendez-vous en ligne</li>
+                                <li data-i18n="cv-exp-1-li4-s3">Tableaux de bord dynamiques selon le rôle</li>
                             </ul>
                         </li>
-                        <li><strong>Conception de la base de données</strong> (MySQL / XAMPP)</li>
+                        <li data-i18n="cv-exp-1-li5"><strong>Conception de la base de données</strong> (MySQL / XAMPP)</li>
                     </ul>
                 </div>
                 <div class="experience reveal reveal-right" style="transition-delay: 0.2s;">
-                    <h3>Gérant de cybercafé</h3>
-                    <p class="lieu"><strong>Cybercafé – Adzopé</strong> | Juillet - Août 2024 (2 mois)</p>
+                    <h3 data-i18n="cv-exp-2-title">Gérant de cybercafé</h3>
+                    <p class="lieu" data-i18n="cv-exp-2-sub"><strong>Cybercafé – Adzopé</strong> | Juillet - Août 2024 (2 mois)</p>
                     <ul>
-                        <li><strong>Gestion technique :</strong> Maintenance et dépannage des ordinateurs, installation de logiciels, résolution des problèmes techniques courants</li>
-                        <li><strong>Service client :</strong> Accompagnement des utilisateurs (navigation internet, impression, scan, démarches administratives en ligne)</li>
-                        <li><strong>Gestion administrative :</strong> Suivi de la caisse, approvisionnement en fournitures, gestion des impressions</li>
-                        <li><strong>Pédagogie :</strong> Explications adaptées aux personnes peu familières avec l'informatique</li>
+                        <li data-i18n="cv-exp-2-li1"><strong>Gestion technique :</strong> Maintenance et dépannage des ordinateurs, installation de logiciels, résolution des problèmes techniques courants</li>
+                        <li data-i18n="cv-exp-2-li2"><strong>Service client :</strong> Accompagnement des utilisateurs (navigation internet, impression, scan, démarches administratives en ligne)</li>
+                        <li data-i18n="cv-exp-2-li3"><strong>Gestion administrative :</strong> Suivi de la caisse, approvisionnement en fournitures, gestion des impressions</li>
+                        <li data-i18n="cv-exp-2-li4"><strong>Pédagogie :</strong> Explications adaptées aux personnes peu familières avec l'informatique</li>
                     </ul>
                 </div>
             </section>

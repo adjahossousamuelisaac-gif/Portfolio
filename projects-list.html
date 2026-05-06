@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="all-projects-title">Tous mes Projets | Développeur Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/projets.css" />
+    <script src="js/languages.js" defer></script>
+    <script src="js/projects.js" defer></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="js/modale.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <style>
+        .projects-page-header {
+            padding: 150px 5% 50px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+        }
+        .projects-grid-full {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 50px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .back-home {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animations d'arrière-plan -->
+    <div class="background-animations">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <header>
+      <div class="logo">
+        <h3><span data-i18n="logo-mon">Mon</span> <span>Portfolio</span></h3>
+      </div>
+      <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav id="nav-menu">
+        <ul>
+          <li><a href="index.html#Accueil" data-i18n="nav-home">Accueil</a></li>
+          <li><a href="index.html#APropos" data-i18n="nav-about">À propos</a></li>
+          <li><a href="index.html#Projets" data-i18n="nav-projects">Projets</a></li>
+          <li><a href="Services/services.html" data-i18n="nav-services">Services</a></li>
+          <li><a href="index.html#Competences" data-i18n="nav-skills">Compétences</a></li>
+          <li><a href="CV/MON_CV.html" data-i18n="nav-cv">Mon CV</a></li>
+          <li><a href="index.html#Contact" data-i18n="nav-contact">Contact</a></li>
+          <li>
+            <button id="langToggle" class="lang-toggle-btn">EN</button>
+          </li>
+          <li>
+            <button id="themeToggle" class="btn btn-secondary" style="padding: 0.4rem 1rem; border-radius: 50%; min-width: 40px;">
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+        <section class="projects-page-header">
+            <h1 class="animate-text-gradient" data-i18n="all-projects-title">Toutes mes Réalisations</h1>
+            <p class="reveal reveal-up" data-i18n="all-projects-subtitle">Découvrez l'ensemble de mes projets, du développement web aux applications complexes.</p>
+            <a href="index.html" class="btn btn-secondary back-home" data-i18n="btn-back-home"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+        </section>
+
+        <section class="projects-list-section">
+            <div id="projectsGrid" class="projects-grid-full">
+                <!-- Les projets seront chargés ici via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal pour les projets -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">
+                    <h3><span data-i18n="logo-mon">Mon</span> <span>Portfolio</span></h3>
+                </div>
+                <p data-i18n="footer-desc">Conception et développement d'expériences numériques d'exception.</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-i18n="footer-nav-title">Navigation</h4>
+                <ul>
+                    <li><a href="index.html#Accueil" data-i18n="nav-home">Accueil</a></li>
+                    <li><a href="Services/services.html" data-i18n="nav-services">Services</a></li>
+                    <li><a href="CV/MON_CV.html" data-i18n="nav-cv">Mon CV</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Adjahossou Achi Samuel. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectsGrid = document.getElementById('projectsGrid');
+            const lang = localStorage.getItem('portfolio-lang') || 'fr';
+            
+            function renderProjectsWithLang(currentLang) {
+                if (!window.projectsData) return;
+                
+                projectsGrid.innerHTML = '';
+                
+                Object.keys(window.projectsData).forEach(id => {
+                    const project = window.projectsData[id];
+                    const content = project[currentLang] || project['fr'];
+                    
+                    const card = document.createElement('div');
+                    card.className = 'project-card reveal active';
+                    card.setAttribute('data-project', id);
+                    
+                    card.innerHTML = `
+                        <div class="project-card-img">
+                            <img src="${project.image}" alt="${content.title}">
+                        </div>
+                        <div class="project-card-content">
+                            <h3>${content.title}</h3>
+                            <p>${content.description}</p>
+                            <div class="project-card-tech">
+                                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                    
+                    card.addEventListener('click', () => {
+                        if (typeof openProjectModal === 'function') {
+                            openProjectModal(id);
+                        }
+                    });
+                    
+                    projectsGrid.appendChild(card);
+                });
+            }
+
+            // Écouter les changements de langue pour re-rendre sans recharger
+            document.addEventListener('languageChanged', (e) => {
+                renderProjectsWithLang(e.detail.lang);
+            });
+
+            // Rendu initial
+            if (window.projectsData) {
+                renderProjectsWithLang(lang);
+                if (window.refreshAnimations) window.refreshAnimations();
+            } else {
+                const checkData = setInterval(() => {
+                    if (window.projectsData) {
+                        renderProjectsWithLang(lang);
+                        if (window.refreshAnimations) window.refreshAnimations();
+                        clearInterval(checkData);
+                    }
+                }, 50);
+                setTimeout(() => clearInterval(checkData), 5000);
+            }
+        });
+    </script>
+</body>
+</html>
