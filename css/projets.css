@@ -6,11 +6,11 @@
 
 .projects-container {
     display: flex;
-    flex-wrap: nowrap; /* Force cards on the same line */
+    flex-wrap: wrap; 
     justify-content: center;
     gap: 2.5rem;
     padding: 20px;
-    max-width: 1400px; /* Increased to allow 3 large cards */
+    max-width: 1400px;
     margin: 0 auto;
 }
 /* Carte de projet */

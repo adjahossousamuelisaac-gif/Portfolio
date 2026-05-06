@@ -74,7 +74,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 120px 40px 40px 40px; /* Space for the new fixed glass header */
+    padding: 80px 40px 40px 40px; 
 }
 
 /* ========================================
@@ -484,8 +484,8 @@ header h3 {
         min-height: auto;
         display: flex;
         flex-direction: column;
-        border-radius: 16px;
-        margin-top: 50px; /* Space for the header on mobile */
+        border-radius: 0;
+        margin-top: 0;
     }
     
     #d1, #d2 {
@@ -494,11 +494,11 @@ header h3 {
     }
 
     body {
-        padding: 80px 15px 15px 15px;
+        padding: 60px 15px 15px 15px;
     }
 
     #main {
-        margin-top: 20px;
+        margin-top: 0;
     }
 
     .nom {

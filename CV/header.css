@@ -161,16 +161,16 @@ nav ul li a:hover::after {
 }
 @media (max-width: 768px) {
   header {
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    padding: 0.8rem 1.2rem;
-    border-radius: 16px;
-    overflow: visible; /* Required to let mobile menu be visible */
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 5%;
+    border-radius: 0;
+    overflow: visible;
   }
 
   header.menu-open {
-    background: var(--bg-dark); /* Solid background when menu is open */
+    background: var(--glass-bg);
   }
 
   nav ul {
@@ -191,7 +191,7 @@ nav ul li a:hover::after {
     right: -100%;
     width: 80%;
     height: 100vh;
-    background: var(--bg-dark);
+    background: var(--glass-bg);
     display: flex;
     flex-direction: column;
     justify-content: center;

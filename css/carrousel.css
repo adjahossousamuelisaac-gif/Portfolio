@@ -18,7 +18,7 @@
 .carrousel {
     position: relative;
     width: max-content; /* Fit all slides side-by-side */
-    min-height: 60vh;
+    min-height: auto;
     height: auto;
     z-index: 2;
     display: flex;
@@ -29,7 +29,7 @@
 .carrousel-item {
     display: flex; /* Always display flex to allow sliding */
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 80px 20px 40px 20px;
     color: var(--text-main);
@@ -50,7 +50,7 @@
     width: 100%;
     max-width: 1500px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 48px;
     text-align: center;
     min-height: 300px;
@@ -288,6 +288,7 @@ h1 {
 
 .tech-tags-mini {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin-top: 15px;
 }
@@ -304,6 +305,9 @@ h1 {
 .tech-tag-mini.node { color: #68a063; }
 
 @media (max-width: 768px) {
+    .carrousel-item {
+        padding-top: 65px !important;
+    }
     .presentation-header {
         flex-direction: column;
         text-align: center;
@@ -311,6 +315,14 @@ h1 {
     }
     .traits-container {
         justify-content: center;
+    }
+    .carrousel-content {
+        padding: 1rem;
+        border-radius: 24px;
+    }
+    .trait {
+        font-size: 0.75rem;
+        padding: 4px 8px;
     }
 }
 
@@ -557,7 +569,7 @@ h1 {
 /* Contrôles */
 .carrousel-btn {
     position: absolute;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
     background: transparent;
     color: var(--primary-color);
@@ -639,6 +651,7 @@ h1 {
 
     /* Carousel Buttons Mobile Adjustments */
     .carrousel-btn {
+        top: 40%;
         width: 45px;
         height: 45px;
         font-size: 1.2rem;
