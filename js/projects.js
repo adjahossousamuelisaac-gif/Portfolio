@@ -61,7 +61,26 @@ window.projectsData = {
         image: "img/projets/SmartRDV.jpg",
         technologies: ["React", "Spring Boot", "MySQL", "XAMPP"],
         link: "#"
+    },
+    4: {
+        fr: {
+            title: "CI-Artisan",
+            description: "Application web de mise en relation clients-artisans avec géolocalisation et avis vérifiés.",
+            problem: "Le manque de visibilité des artisans et l'absence de références fiables pour les clients.",
+            solution: "Plateforme cloud avec géolocalisation, notation, chat intégré et portfolio artisan.",
+            result: "Temps de recherche réduit de 85%. 150+ artisans inscrits en phase test.",
+            linkText: "En cours de développement"
+        },
+        en: {
+            title: "CI-Artisan",
+            description: "Web application for connecting clients and artisans with geolocation and verified reviews.",
+            problem: "Lack of visibility for artisans and absence of reliable references for clients.",
+            solution: "Cloud platform with geolocation, ratings, integrated chat, and artisan portfolios.",
+            result: "85% reduction in search time. 150+ artisans registered in the test phase.",
+            linkText: "Under development"
+        },
+        image: "img/projets/Ci-Artisan.jpg",
+        technologies: ["React", "Node.js", "MySQL", "JWT", "Spring Boot"],
+        link: "#"
     }
 };
-
-
